@@ -128,10 +128,13 @@ switch ($url) {
     case "suasach":
         suaSach();
         break;
-        case "xoasach":
-            xoaSach();
-            break;
+    case "xoasach":
+        xoaSach();
+        break;
     case "sach":
         hienthiSach();
+        break;
+    case "camon":
+        include_once "view/xshop/camon.php";
         break;
 }
