@@ -88,7 +88,7 @@
   .button:hover {
     background-color: rgb(130, 115, 73);
   }
-
+  /* /footer */
   .footer {
     color: black;
   }
