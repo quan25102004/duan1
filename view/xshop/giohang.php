@@ -180,7 +180,8 @@
         <!-- BODY -->
         <div class="container"
             style="display: flex; align-items: unset;">
-            <div class="body1" style="width: 70%; margin-right: 20px;margin-top: 0%;">
+            <div class="body1"
+                style="width: 70%; margin-right: 20px;margin-top: 0%;">
                 <strong style="font-size: 30px;">Giỏ hàng của bạn</strong>
                 <div style="display: flex;padding-top: 30px;">
                     <p class="name_pro">Tên sản phẩm</p>
@@ -190,6 +191,7 @@
                 </div>
                 <hr>
                 <div style="display: flex;">
+                    
                     <div class="name_pro">
                         <img src="/pulic/img/dh1.jpg" alt width="100px">
                         <p>Đông Hồ cao cấp</p>
@@ -197,13 +199,9 @@
                     <p class="price">100.000</p>
                     <p class="number">1</p>
                     <p class="sum">100.000</p>
+                    <input type="checkbox">
                 </div>
-                <div style="display: flex;padding-top: 30px;">
-                    <p class="name_pro">Tên sản phẩm</p>
-                    <p class="price">Giá tiền</p>
-                    <p class="number">Số lượng</p>
-                    <p class="sum">Tổng tiền</p>
-                </div>
+               
                 <hr>
                 <div style="display: flex;">
                     <div class="name_pro">
@@ -213,7 +211,8 @@
                     <p class="price">100.000</p>
                     <p class="number">1</p>
                     <p class="sum">100.000</p>
-                </div>
+                    <input type="checkbox">
+                </div> <hr>
                 <div style="display: flex;">
                     <div class="name_pro">
                         <img src="/pulic/img/dh1.jpg" alt width="100px">
@@ -222,13 +221,9 @@
                     <p class="price">100.000</p>
                     <p class="number">1</p>
                     <p class="sum">100.000</p>
+                    <input type="checkbox">
                 </div>
-                <div style="display: flex;padding-top: 30px;">
-                    <p class="name_pro">Tên sản phẩm</p>
-                    <p class="price">Giá tiền</p>
-                    <p class="number">Số lượng</p>
-                    <p class="sum">Tổng tiền</p>
-                </div>
+               
                 <hr>
                 <div style="display: flex;">
                     <div class="name_pro">
@@ -238,38 +233,47 @@
                     <p class="price">100.000</p>
                     <p class="number">1</p>
                     <p class="sum">100.000</p>
+                    <input type="checkbox">
                 </div>
             </div>
-            <div class="body2" style="width: 35%;margin-top: 5%;margin-bottom: 5%;">
+            <div class="body2"
+                style="width: 35%;margin-top: 5%;margin-bottom: 5%;">
                 <div style="padding: 30px; background-color: #f1f0f0;">
                     <strong style="font-size: 20px;">Tổng tiền giỏ hàng</strong>
                     <div style="margin-top: 10px;">
-                        <div style="display: flex;justify-content: space-between;">
-                        <p>Tổng sản phẩm</p>
-                        <p>1</p>
+                        <div
+                            style="display: flex;justify-content: space-between;">
+                            <p>Tổng sản phẩm</p>
+                            <p>1</p>
+                        </div>
+                        <div
+                            style="display: flex;justify-content: space-between;">
+                            <p>Tổng tiền hàng</p>
+                            <p>100.000</p>
+                        </div>
+                        <div
+                            style="display: flex;justify-content: space-between;">
+                            <p>Thành tiền</p>
+                            <p>100.000</p>
+                        </div>
+                        <div>
+                            <a href style="text-decoration: none;">Thanh toán
+                                khi
+                                nhận hàng</a> <br>
+                            <a href style="text-decoration: none;">Thanh toán
+                                trực
+                                tuyến</a>
+                        </div>
                     </div>
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Tổng tiền hàng</p>
-                        <p>100.000</p>
-                    </div>
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Thành tiền</p>
-                        <p>100.000</p>
-                    </div>
-                    <div>
-                        <a href style="text-decoration: none;">Thanh toán khi
-                            nhận hàng</a> <br>
-                        <a href style="text-decoration: none;">Thanh toán trực
-                            tuyến</a>
-                    </div>
+
                 </div>
-                
-            </div>
-            <div style="width: 100%;background-color: rgb(0, 0, 0);text-align: center;">
-                <p style="color: white;font-weight: 500; font-size: 20px;">Đặt mua</p>
-            </div>
-                
-               
+                <div
+                    style="width: 100%;background-color: rgb(0, 0, 0);text-align: center;">
+                    <p
+                        style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt
+                        mua</p>
+                </div>
+
             </div>
         </div>
         <!-- footer -->
