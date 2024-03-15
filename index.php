@@ -137,4 +137,10 @@ switch ($url) {
     case "camon":
         include_once "view/xshop/camon.php";
         break;
+    case "thanhtoan":
+        include_once "view/xshop/thanhtoan.php";
+        break;
+        case "giohang":
+            include_once "view/xshop/giohang.php";
+            break;
 }
