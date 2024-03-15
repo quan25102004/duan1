@@ -58,6 +58,7 @@ box-sizing: border-box;
                 <p><a style="font-size: 13px; color: #706f6f; margin-top: 5px;text-decoration: none;">Quên mật khẩu</a></p>
                 <div>
                     <button style="margin-top: 15px; background-color: red; border: 1px solid #ccc; border-radius: 5px;" name="dangnhap" type="submit"><p style="padding: 5px;font-size: 15px;color: #ffffff;">Đổi mật khẩu</p></button>
+                    <a href="?url=indexTrangChu">Trang chủ</a>
                 </div>
             </form>
         </div>

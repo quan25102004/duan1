@@ -61,6 +61,7 @@
             display: inline-block;
             line-height: 46px;
             position: relative;
+            width: 100%;
         }
         #nav > li:hover > a{
             display: inline-block;
