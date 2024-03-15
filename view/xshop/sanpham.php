@@ -174,6 +174,9 @@
         <li class="nav-item">
           <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
         </li>
+        <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
+                </li>
       </ul>
       <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
         cần
