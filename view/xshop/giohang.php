@@ -260,8 +260,9 @@
 
             </div>
             <div style="width: 100%;background-color: rgb(0, 0, 0);text-align: center;">
-                <p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
-                </p>
+            <a href="?url=thanhtoan" style="text-decoration: none;"><p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
+                </p></a>
+                
             </div>
         </div>
     </div>
