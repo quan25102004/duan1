@@ -14,6 +14,7 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+       
     }
     
     .header {
@@ -286,8 +287,9 @@
                             </div>
                         </div>
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt
-                            hàng</button>
+                        <button class="btn btn-primary btn-lg btn-block" style="background-color: black;margin-bottom:30px;" type="submit" name="btnDatHang"><a style=" text-decoration: none;
+        color: white;" href="?url=camon">Đặt
+                            hàng</a></button>
                     </div>
                 </div>
             </form>

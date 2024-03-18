@@ -52,7 +52,6 @@
 
     .nav {
         display: block;
-        text-align: center;
         font-weight: 600;
     }
 
@@ -61,15 +60,27 @@
         width: 100%;
         display: block;
     }
+    .sub-nav{
+    padding-left: 10%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    
+}
+.mota{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 </style>
 
 <body>
-    <?php
-    if (!isset($_COOKIE['user'])) {
-        header('location: ?url=login');
-        die;
-    }
-    ?>
+<?php
+   if(!isset($_COOKIE['user'])){
+    header('location: ?url=login');
+    die;
+}
+  ?>
     <div class="admin">
         <!-- header -->
         <div class="list">
@@ -79,34 +90,29 @@
             <div>
                 <ul class="nav">
                     <div class="sub-nav"> <a href="?url=loai">
-                            <li>Loại hàng</li>
+                            <li>Quản lý Loại hàng</li>
                         </a></div>
                     <div class="sub-nav"><a href="?url=sanpham">
-                            <li>Sản Phẩm</li>
+                            <li>Quản lý Sản Phẩm</li>
                         </a></div>
                     <div class="sub-nav">
                         <a href="?url=donhang">
-                            <li>Đơn hàng</li>
+                            <li>Quản lý Đơn hàng</li>
                         </a>
                     </div>
                     <div class="sub-nav">
                         <a href="?url=taikhoan">
-                            <li>Tai khoan</li>
+                            <li>Quản lý tài khoản</li>
                         </a>
                     </div>
                     <div class="sub-nav">
                         <a href="?url=binhluan">
-                            <li>Binh luan</li>
-                        </a>
-                    </div>
-                    <div class="sub-nav">
-                        <a href="?url=tintuc">
-                            <li>Tin tuc</li>
+                            <li>Quản lý bình luận</li>
                         </a>
                     </div>
                     <div class="sub-nav">
                         <a href="?url=bieudo">
-                            <li>Bieu do</li>
+                            <li>Thống kê biểu đồ</li>
                         </a>
                     </div>
 
@@ -140,7 +146,7 @@
                         <td><?= $sp['dongia'] ?></td>
                         <td><?= $sp['soluong'] ?></td>
                         <td><?= $sp['giamgia'] ?></td>
-                        <td><?= $sp['mota'] ?></td>
+                        <td><p class="mota"><?= $sp['mota'] ?></p></td>
                         <td><?= $sp['tenloai'] ?></td>
                         <td>
 

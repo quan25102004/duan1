@@ -80,7 +80,7 @@
   .button {
     text-decoration: none;
     width: 110px;
-    background-color: rgb(227, 198, 118);
+    background-color: #989494;
     padding: 10px;
     border-radius: 7px;
   }

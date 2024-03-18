@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <style>
-     * {
+  * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -36,43 +36,51 @@
   .nav-link:hover {
     color: rgb(0, 0, 0);
   }
-  #header{
-            height: 46px;
-        }
-        #nav > li{
-            display: block;
-        }
-        #nav li a{
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-        #nav li{
-            display: inline-block;
-            line-height: 46px;
-            position: relative;
-            width: 100%;
-        }
-        #nav > li:hover > a{
-            display: inline-block;
-            background-color: #ccc;
-        }
-        #nav .subnav{
-            display: none;
-            position: absolute;
-            right: 5px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0);
-            padding:0px
-            
-        }
-        #nav li:hover .subnav{
-            display: block;
-        }
-        #nav .subnav li:hover{
-            background-color: #ccc;
-        }
-    /* footer */
-    .footer {
+
+  #header {
+    height: 46px;
+  }
+
+  #nav>li {
+    display: block;
+  }
+
+  #nav li a {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #nav li {
+    display: inline-block;
+    line-height: 46px;
+    position: relative;
+    width: 100%;
+  }
+
+  #nav>li:hover>a {
+    display: inline-block;
+    background-color: #ccc;
+  }
+
+  #nav .subnav {
+    display: none;
+    position: absolute;
+    right: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
+    padding: 0px
+  }
+
+  #nav li:hover .subnav {
+    display: block;
+  }
+
+  #nav .subnav li:hover {
+    background-color: #ccc;
+  }
+
+  /* footer */
+  .footer {
     color: black;
   }
 
@@ -90,21 +98,50 @@
     height: 30px;
     margin-left: 10px;
   }
-</style>
-</style>
-<body>
-<!-- <?php
-  if (!isset($_COOKIE['user'])) {
-    header('location: ?url=login');
-    die;
+
+  .thank {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+
+    justify-content: center;
+    animation-name: example;
+    animation-duration: 4s;
+    
+    
   }
-  ?> -->
-   <!-- Header -->
-   <div class="main-header">
+
+  @keyframes example {  
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+
+    }
+
+
+    
+  }
+</style>
+</style>
+
+<body>
+  <!-- <?php
+        if (!isset($_COOKIE['user'])) {
+          header('location: ?url=login');
+          die;
+        }
+        ?> -->
+  <!-- Header -->
+  <div class="main-header">
     <div class="container header">
       <div class="header-logo">
         <a href="?url=indexTrangChu"><img style="height: 30px;" src="pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
-        
+
       </div>
       <ul class="nav justify-content-center">
         <li class="nav-item">
@@ -120,33 +157,32 @@
           <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
         </li>
         <li class="nav-item">
-                    <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
-                </li>
+          <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
+        </li>
       </ul>
       <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
         cần
         giúp đỡ gì?</a>
-    
+
       <div id="header">
-            <ul id="nav">
-                <li><img
-                        src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"alt width="30px" style="border-radius: 50%;"> 
-                    <ul class="subnav" style="width: 100px;"> 
-                      <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
-                      <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
-                    </ul>
-                </li>
+        <ul id="nav">
+          <li><img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg" alt width="30px" style="border-radius: 50%;">
+            <ul class="subnav" style="width: 100px;">
+              <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
+              <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
             </ul>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <!-- body -->
-  <div style="display: flex;margin-top: 5%;margin-bottom: 5%;justify-content: center;">
-      <div style=" border: 2px solid #ccc;width:400px;text-align: center;padding: 50px 0px;box-shadow: 0 0 10px #000000;">
-         <div> <img src="https://www.rocktie.com/images/verified.png" alt="" style="width: 100px;margin-bottom: 15px;"></div>
-         <div style="margin-bottom: 15px;">Cảm ơn bạn đã đặt mua!</div>
-         <div><a href="?url=indexTrangChu">Quay lại</a></div>
-      </div>
+  <div class="thank" style="">
+    <div style=" border: 2px solid #ccc;width:400px;text-align: center;padding: 50px 0px;box-shadow: 0 0 10px #000000;">
+      <div> <img src="https://www.rocktie.com/images/verified.png" alt="" style="width: 100px;margin-bottom: 15px;"></div>
+      <div style="margin-bottom: 15px;">Cảm ơn bạn đã đặt mua!</div>
+      <div><a href="?url=indexTrangChu">Quay lại</a></div>
+    </div>
   </div>
   <!-- footer -->
   <div class="container">
@@ -202,6 +238,8 @@
 <!-- gahgsdfja -->
 <!--  -->
 <!-- ádfasdasd -->
+
 </html>
 </body>
+
 </html>

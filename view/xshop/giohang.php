@@ -249,14 +249,7 @@
                         <p>Thành tiền</p>
                         <p>100.000</p>
                     </div>
-                    <div>
-                        <a href style="text-decoration: none;">Thanh toán
-                                khi
-                                nhận hàng</a> <br>
-                        <a href style="text-decoration: none;">Thanh toán
-                                trực
-                                tuyến</a>
-                    </div>
+
                 </div>
 
             </div>
