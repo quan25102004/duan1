@@ -204,7 +204,7 @@
                     <img src="/pulic/img/dh1.jpg" alt width="100px">
                     <p>Đông Hồ cao cấp</p>
                 </div>
-                <p class="price">100.000</p>
+                <p class="price">100.0000</p>
                 <p class="number">1</p>
                 <p class="sum">100.000</p>
                 <input type="checkbox">
