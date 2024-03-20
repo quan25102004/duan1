@@ -194,7 +194,7 @@
                 </div>
                 <p class="price">100.000</p>
                 <p class="number">1</p>
-                <p class="sum">100.000</p>
+                <p class="sum">100.00000000</p>
                 <input type="checkbox">
             </div>
 
