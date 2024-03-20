@@ -1,6 +1,7 @@
 <?php
 require 'model/xshop.php';
 require_once 'model/loai.php';
+
 function listTrangChu()
 {
     $sanpham = hienThi();
@@ -30,6 +31,8 @@ function ctsp()
         themBinhLuan($noidung,$idKH,$idSP);
     }
     $ma = $_GET['ma'];
+    $idLoai = $_GET['idLoai'];
+    $sanpham = sanPhamLienQuan($idLoai);
     $ctsp = chiTietSanPham($ma);
     $binhluan = binhLuan($ma);
     $userCookie = $_COOKIE['user'];

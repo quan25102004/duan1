@@ -123,6 +123,12 @@
     h3 {
         height: 100px;
     }
+    .order:hover{
+        background-color: #393838;
+    }
+    .order{
+        background-color: #000;
+    }
 </style>
 
 <body>
@@ -253,16 +259,17 @@
                 </div>
 
             </div>
-            <div style="width: 100%;background-color: rgb(0, 0, 0);text-align: center;">
-            <a href="?url=thanhtoan" style="text-decoration: none;"><p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
+            <div style="width: 100%;text-align: center;" class="order">
+            <a href="?url=thanhtoan" style="text-decoration: none;" ><p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
                 </p></a>
                 
             </div>
         </div>
     </div>
     <!-- footer -->
-    <div class="container">
-        <div class=" d-flex footer w-100  ">
+    <div style="background-color: #f1f0f0;">
+ <div class="container">
+        <div class=" d-flex footer w-100 pt-4 ">
             <div style="margin-left: 30px; width: 245px; margin-right: 100px;">
                 <img src="pulic/img/logo.png" style="width: 150px; height: 50px;margin-bottom: 58px">
                 <p class="card-text">Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650</p>
@@ -311,6 +318,8 @@
         </div>
 
     </div>
+    </div>
+   
 
 </body>
 

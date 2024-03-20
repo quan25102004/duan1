@@ -10,6 +10,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <style>
+  body{
+    background-color: #f5f5f5;
+  }
   * {
     padding: 0;
     margin: 0;
@@ -139,6 +142,12 @@
   #nav .subnav li:hover {
     background-color: #ccc;
   }
+  .price{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 </style>
 
 <body>
@@ -195,7 +204,7 @@
       <hr>
     </div>
 
-    <div class="prd">
+    <div class="prd" style="background-color: #fff;padding:100px;border-radius:5px;">
       <div class="img-prd">
         <?php foreach ($ctsp as $c) : ?>
           <img src="pulic/img/<?= $c['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
@@ -215,13 +224,13 @@
 
     </div>
 
-    <div style="width: 500px; margin-top: 100px;">
-      <p style="font-size: 25px;">ĐÁNH GIÁ SẢN PHẨM</p>
+    <div style="width: 100%; margin-top: 20px;background-color: #fff;padding:10px;border-radius:5px;">
+      <p style="font-size: 20px;">ĐÁNH GIÁ SẢN PHẨM</p>
       <form action="" method="post">
         <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
         <input type="hidden" name="idSP" value="<?= $ma ?>">
-        <input type="text" name="noidung" style="width: 70%;" placeholder="Hãy điền tên vào đây">
-        <button type='submit' style="width: 29%;">Gui Binh Luan</button>
+        <input type="text" name="noidung" style="width: 85%;padding:3px" placeholder="Hãy điền tên vào đây">
+        <button type='submit' style="width: 10%;padding:3px">Gửi bình luận</button>
       </form>
       <hr>
       <div>
@@ -233,17 +242,32 @@
                 <img src="pulic/img/<?= $b['avata'] ?>" width="40px" height="40px" alt="" style="border-radius: 50%;align-items: center ;">
               </div>
               <div style="color: #828181;padding-left: 10px;">
-                <strong style=""><?= $b['tenKH'] ?></strong>
+                <p style="margin:0;color:black;font-weight:450"><?= $b['tenKH'] ?></p>
+                <a><?= $b['ngayBL'] ?> |</a> <a><?= $b['tensp'] ?></a>
               </div>
             </div>
-            <p style="color: #828181;margin-top:16px;"><?= $b['noidung'] ?></p>
+            <p style="color: #000;margin-top:16px;width:35%"><?= $b['noidung'] ?></p>
           </div>
           <hr>
 
         <?php endforeach ?>
       </div>
     </div>
-  </div>
+    <p style="font-size: 20px;margin:10px;">SẢN PHẨM LIÊN QUAN</p>
+    <div style="width: 100%; margin-top: 20px;padding:10px;border-radius:5px;display:flex">
+    <?php foreach($sanpham as $s):?>
+      <div style="margin: 7px;background-color: #fff;width:150px">
+        <img src="pulic/img/<?=$s['anh']?>" alt="" width="150px" height="150px">
+        <p style="padding:5px;margin:0;" ><?=$s['tensp']?></p>
+        <div style="display:flex" >
+           <p style="padding:0px 5px;color:#f24261;font-weight:600;"  ><?=$s['dongia']?>.VNĐ </p>
+           <p class="price" style="color:#afaaaa;padding-left:15px">Đã bán 3</p>
+        </div>
+       
+      </div>
+      <?php endforeach?>
+    </div>
+  </div> <br> <hr>
   <div class="container">
     <div class=" d-flex footer w-100 ">
       <div style="width: 245px; margin-right: 100px;">

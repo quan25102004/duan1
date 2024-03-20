@@ -24,7 +24,7 @@
     }
 
     .list {
-        height: 700px;
+        height: 1000px;
         width: 30%;
         background-color: rgb(59, 155, 228);
     }

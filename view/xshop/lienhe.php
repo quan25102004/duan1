@@ -185,8 +185,10 @@
       </div>
     </div>
   </div>
+  <!-- footer -->
+  <div style="background-color: #f1f0f0;">
   <div class="container">
-    <div class=" d-flex footer w-100 ">
+    <div class=" d-flex footer w-100 pt-4 ">
       <div style="margin-left: 30px; width: 245px; margin-right: 100px;">
         <img src="pulic/img/logo.png" style="width: 150px; height: 50px;margin-bottom: 58px">
         <p class="card-text">Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650</p>
@@ -233,5 +235,7 @@
       </div>
     </div>
   </div>
+  </div>
+
 
 </body>

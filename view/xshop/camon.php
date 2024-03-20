@@ -177,7 +177,7 @@
     </div>
   </div>
   <!-- body -->
-  <div class="thank" style="">
+  <div class="thank" >
     <div style=" border: 2px solid #ccc;width:400px;text-align: center;padding: 50px 0px;box-shadow: 0 0 10px #000000;">
       <div> <img src="https://www.rocktie.com/images/verified.png" alt="" style="width: 100px;margin-bottom: 15px;"></div>
       <div style="margin-bottom: 15px;">Cảm ơn bạn đã đặt mua!</div>

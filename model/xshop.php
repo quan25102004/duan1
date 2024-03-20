@@ -44,6 +44,10 @@ function chiTietSanPham($ma){
    $sql = "SELECT * FROM hanghoa WHERE idSP = $ma ";
    return getData($sql);
 }
+function sanPhamLienQuan($idLoai){
+   $sql = "SELECT * FROM hanghoa WHERE idLoai = $idLoai ";
+   return getData($sql);
+}
 function search($key){
    $sql = "SELECT * FROM hanghoa WHERE tenSP LIKE '%$key%'";
    return getData($sql);

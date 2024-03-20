@@ -128,6 +128,7 @@ function doiMK()
             if ($matKhaucu == $matKhau) {
                 if ($r_matKhaumoi == $matKhaumoi) {
                     editMK($idKH,$matKhaumoi);
+                    echo "<script> alert ('Đổi mật khẩu thành công')</script>";
                 } else {
                     $error['r_matKhaumoi'] = "*Mat khau khong trung khop";
                 }
