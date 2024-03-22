@@ -122,6 +122,37 @@
     .soluong s h3 {
         height: 100px;
     }
+    
+    #buy-amount {
+        display: flex;
+    }
+    
+    #buy-amount button {
+        width: 20px;
+        height: 26px;
+        outline: none;
+        background: none;
+        border: 1px solid #ececec;
+        cursor: pointer;
+    }
+    
+    #buy-amount button:hover {
+        background-color: #ececec;
+    }
+    
+    #buy-amount button svg {
+        color: #ececec;
+    }
+    
+    #buy-amount button:hover svg {
+        color: #4f4f4f;
+    }
+    
+    #buy-amount #amount {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ececec;
+    }
 </style>
 
 <body>
@@ -182,45 +213,30 @@
                 <p class="sum">Tổng tiền</p>
                 <p class="sum">Số Lượng</p>
             </div>
-            <hr>
-            <div style="display: flex;">
-
-                <div class="name_pro">
-                    <img src="/pulic/img/dh1.jpg" alt width="100px">
-                    <p>Đông Hồ cao cấp</p>
-                </div>
-                <p class="price">100.000</p>
-                <span class="item-quantity">
-                    <button class="quantity-btn decrease">-</button>
-                    <span class="quantity">1</span>
-                <button class="quantity-btn increase">+</button>
-                </span>
-
-
-
-            </div>
-
-            <hr>
             <div style="display: flex;">
                 <div class="name_pro">
                     <img src="/pulic/img/dh1.jpg" alt width="100px">
                     <p>Đông Hồ cao cấp</p>
                 </div>
                 <p class="price">100.000</p>
-
-                <p class="sum">100.00000000</p>
-                <input type="checkbox">
-            </div>
-            <hr>
-            <div style="display: flex;">
-                <div class="name_pro">
-                    <img src="/pulic/img/dh1.jpg" alt width="100px">
-                    <p>Đông Hồ cao cấp</p>
+                <div id="buy-amount">
+                    <button class="minus-btn" onclick="handleMinus()">
+                        <svg fill="none" viewBox="0 2 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                      </svg>
+                      
+                    </button>
+                    <input style="height: 26px;" type="text" name="amount" id="amount" value="1">
+                    <button class="minus-btn" onclick="handlePlus()">
+                        <svg  fill="none" viewBox="0 1 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-9">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                      </svg>
+            
+                    </button>
                 </div>
-                <p class="price">100.000</p>
-                <p class="number">1</p>
                 <p class="sum">100.000</p>
                 <input type="checkbox">
+
             </div>
 
             <hr>
@@ -324,20 +340,29 @@
 
 </html>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var quantityButtons = document.querySelectorAll('.quantity-btn');
+    let amountElenment = document.getElementById('amount');
+    let amount = amountElenment.value;
+    console.log(amount)
+        // console.log (amount)
+    let render = (amount) => {
+            amountElenment.value = amount
+        }
+        //handlePlus
+    let handlePlus = () => {
+            amount++
+            render(amount);
+        }
+        // handle Mius
+    let handleMinus = () => {
+        if (amount > 1)
+            amount--;
+        render(amount);
+    }
 
-        quantityButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                var quantityElement = this.parentElement.querySelector('.quantity');
-                var currentQuantity = parseInt(quantityElement.textContent);
-
-                if (this.classList.contains('increase')) {
-                    quantityElement.textContent = currentQuantity + 1;
-                } else if (this.classList.contains('decrease') && currentQuantity > 1) {
-                    quantityElement.textContent = currentQuantity - 1;
-                }
-            });
-        });
+    amountElenment.addEventListener('inout', () => {
+        amount = amountElenment.value;
+        amount = parseInt(amount);
+        amount = (isNaN(amount) || amount == 0) ? 1 : amount;
+        render(amount);
     });
 </script>
