@@ -211,7 +211,7 @@
                 <p class="price">Giá tiền</p>
                 <p class="number">Số lượng</p>
                 <p class="sum">Tổng tiền</p>
-                <p class="sum">Số Lượng</p>
+
             </div>
             <div style="display: flex;">
                 <div class="name_pro">
@@ -219,22 +219,26 @@
                     <p>Đông Hồ cao cấp</p>
                 </div>
                 <p class="price">100.000</p>
-                <div id="buy-amount">
-                    <button class="minus-btn" onclick="handleMinus()">
-                        <svg fill="none" viewBox="0 2 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
-                      </svg>
-                      
-                    </button>
-                    <input style="height: 26px;" type="text" name="amount" id="amount" value="1">
-                    <button class="minus-btn" onclick="handlePlus()">
-                        <svg  fill="none" viewBox="0 1 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-9">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                      </svg>
-            
-                    </button>
-                </div>
+                <p class="\">
+                    <div id="buy-amount" class="price">
+                        <button class="minus-btn" onclick="handleMinus()">
+                            <svg fill="none" viewBox="0 2 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                          </svg>
+                          
+                        </button>
+                        <input style="height: 26px;" type="text" name="amount" id="amount" value="1">
+                        <button class="minus-btn" onclick="handlePlus()">
+                            <svg  fill="none" viewBox="0 1 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-9">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                          </svg>
+                
+                        </button>
+                    </div>
+                </p>
                 <p class="sum">100.000</p>
+
+
                 <input type="checkbox">
 
             </div>
