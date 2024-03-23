@@ -146,6 +146,7 @@
   #nav .subnav li:hover {
     background-color: #ccc;
   }
+
 </style>
 
 <body>
@@ -230,8 +231,8 @@
             <div class>
               <h5 class="card-title mt-2"><?= $sp['tensp'] ?></h5>
               <p class="card-text"><?= $sp['mota'] ?></p>
-              <div class="button">
-                <a href="?url=ctsp&ma=<?= $sp['idSP']?>&idLoai=<?= $sp['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
+              <div class="button" style="display: flex;">
+                <a class="xemchitiet" href="?url=ctsp&ma=<?= $sp['idSP']?>&idLoai=<?= $sp['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
               </div>
 
             </div>

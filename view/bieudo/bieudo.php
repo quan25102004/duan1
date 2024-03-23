@@ -1,48 +1,51 @@
 <?php
-$connect = new mysqli('127.0.0.1', 'root', '','duanmau');
+$connect = new mysqli('127.0.0.1', 'root', '', 'duanmau');
 $query = "SELECT loai.*,COUNT(hanghoa.idLoai) AS number_loai FROM hanghoa JOIN loai  ON hanghoa.idLoai= loai.idLoai GROUP BY hanghoa.idLoai";
-$result = mysqli_query($connect,$query);
-$data=[];
-while($row = mysqli_fetch_array($result)){
-$data[] = $row;
-
+$result = mysqli_query($connect, $query);
+$data = [];
+while ($row = mysqli_fetch_array($result)) {
+    $data[] = $row;
 }
 // var_dump($data);
 ?>
 <html>
-  <head>
+
+<head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['tenloai', 'number_loai'],
-        
-     <?php
-     foreach($data as $d){
-        echo "['".$d['tenloai']. "',".$d['number_loai']."],";
-     }
-     ?>
-        ]);
+        google.charts.load("current", {
+            packages: ["corechart"]
+        });
+        google.charts.setOnLoadCallback(drawChart);
 
-        var options = {
-          title: 'Biểu đồ: ',
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['tenloai', 'number_loai'],
 
-          is3D: true,
-        };
+                <?php
+                foreach ($data as $d) {
+                    echo "['" . $d['tenloai'] . "'," . $d['number_loai'] . "],";
+                }
+                ?>
+            ]);
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
+            var options = {
+                title: 'Biểu đồ: ',
+
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+        }
     </script>
-  </head>
-  <style>
+</head>
+<style>
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-         font-family: 'Arial';
+        font-family: 'Arial';
     }
 
     .admin {
@@ -52,7 +55,7 @@ $data[] = $row;
     .list {
         height: 1000px;
         width: 30%;
-        background-color: rgb(59, 155, 228);
+        background-color: rgb(40 64 81);
     }
 
     .db {
@@ -65,22 +68,25 @@ $data[] = $row;
         text-align: center;
     }
 
-    td,tr {
+    td,
+    tr {
         text-align: center;
         border: 1px solid black;
-        
+
     }
 
     a {
         color: white;
         text-decoration: none;
     }
+
     .nav {
         display: block;
-     
+
         font-weight: 600;
     }
-    .sub-nav{
+
+    .sub-nav {
         padding: 3px;
     }
 
@@ -89,29 +95,34 @@ $data[] = $row;
         display: block;
         width: 100%;
     }
-    .sub-nav{
-    padding-left: 10%;
-    padding-top: 5.2%;
-    padding-bottom: 4%;
-    text-decoration: none;
-    list-style: none;
-    
-}
+
+    .sub-nav {
+        padding-left: 10%;
+        padding-top: 5.2%;
+        padding-bottom: 4%;
+        text-decoration: none;
+        list-style: none;
+
+    }
+    .logout{
+        font-weight: 700;
+         padding-left: 10%;
+         padding-top: 5px;
+
+    }
 </style>
 
 <body>
-<?php
-   if(!isset($_COOKIE['user'])){
-    header('location: ?url=login');
-    die;
-}
-  ?>
+    <?php
+    if (!isset($_COOKIE['user'])) {
+        header('location: ?url=login');
+        die;
+    }
+    ?>
     <div class="admin">
         <!-- header -->
         <div class="list">
-            <a href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg>Đăng xuất</a>
+
             <div>
                 <ul class="nav">
                     <div class="sub-nav"> <a href="?url=loai">
@@ -146,8 +157,17 @@ $data[] = $row;
 
 
             </div>
+            <hr>
+
+            <a class="logout" href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg> Đăng xuất</a>
+
+
+
         </div>
-         <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
     </div>
-  </body>
+</body>
+
 </html>

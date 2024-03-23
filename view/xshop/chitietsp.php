@@ -64,6 +64,7 @@
   .add{
     border: 1px solid black;
     background-color: #ccc;
+    text-decoration: none;
     color: #f6f6f6;
     margin: 0;
     width: 100%;
@@ -71,6 +72,9 @@
     text-align: center;
     font-size: 20px;
     border-radius: 5px;
+  }
+  a{
+    text-decoration: none;
   }
   .deal:hover {
     background-color: #83081e;
@@ -203,36 +207,30 @@
       <strong style="font-size:35px;">Chi tiết sản phẩm</strong>
       <hr>
     </div>
-
     <div class="prd" style="background-color: #fff;padding:100px;border-radius:5px;">
       <div class="img-prd">
-        <?php foreach ($ctsp as $c) : ?>
-          <img src="pulic/img/<?= $c['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
-        <?php endforeach ?>
+        <img name='anh' src="pulic/img/<?= $ctsp['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
       </div>
       <div class="sub-prd">
-        <?php foreach ($ctsp as $c) : ?>
-          <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;"><?= $c['tensp'] ?></p>
-          <strong style="    font-weight: 500;color: #f24261;font-size: 27px;"><?= $c['dongia'] . ".VNĐ" ?></strong>
-          <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
-          <p style="color: #9d9d9d;margin-top: 19px;font-family: 'Roboto', sans-serif;"><?= $c['mota'] ?></p>
-          <p class="add" >Thêm giỏ hàng</p>
+        <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;" name='tensp'><?= $ctsp['tensp'] ?></p>
+        <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= $ctsp['dongia'] . ".VNĐ" ?></strong>
+        <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
+        <p style="color: #9d9d9d;margin-top: 19px;font-family: 'Roboto', sans-serif;" name='mota'><?= $ctsp['mota'] ?></p>
+        <form action="?url=giohang&addcart=<?=$ma?>" method='post'>
+    <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
+    <input type="hidden" name="idSP" value="<?= $ma ?>">
+    <button type="submit" name='addcart' class="add" value="Thêm giỏ hàng">Thêm giỏ hàng</button>
+</form>
           <p class="deal">Mua ngay</p>
            
-        <?php endforeach ?>
       </div>
 
     </div>
 
+
     <div style="width: 100%; margin-top: 20px;background-color: #fff;padding:10px;border-radius:5px;">
       <p style="font-size: 20px;">ĐÁNH GIÁ SẢN PHẨM</p>
-      <form action="" method="post">
-        <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
-        <input type="hidden" name="idSP" value="<?= $ma ?>">
-        <input type="text" name="noidung" style="width: 85%;padding:3px" placeholder="Hãy điền tên vào đây">
-        <button type='submit' style="width: 10%;padding:3px">Gửi bình luận</button>
-      </form>
-      <hr>
+      
       <div>
         <?php foreach ($binhluan as $b) : ?>
 
@@ -249,9 +247,14 @@
             <p style="color: #000;margin-top:16px;width:35%"><?= $b['noidung'] ?></p>
           </div>
           <hr>
-
         <?php endforeach ?>
       </div>
+      <form action="" method="post">
+        <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
+        <input type="hidden" name="idSP" value="<?= $ma ?>">
+        <input type="text" name="noidung" style="width: 50%;padding:3px;height:32px;" placeholder="Hãy điền bình luận vào đây">
+        <button type='submit' style="width: 10%;padding:2px; margin-top:5px;">Gửi bình luận</button>
+      </form>
     </div>
     <p style="font-size: 20px;margin:10px;">SẢN PHẨM LIÊN QUAN</p>
     <div style="width: 100%; margin-top: 20px;padding:10px;border-radius:5px;display:flex">

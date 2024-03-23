@@ -42,8 +42,9 @@ function loc($idLoai){
 }
 function chiTietSanPham($ma){
    $sql = "SELECT * FROM hanghoa WHERE idSP = $ma ";
-   return getData($sql);
+   return getData($sql,false);
 }
+
 function sanPhamLienQuan($idLoai){
    $sql = "SELECT * FROM hanghoa WHERE idLoai = $idLoai ";
    return getData($sql);

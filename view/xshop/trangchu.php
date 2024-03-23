@@ -221,7 +221,7 @@
                 <h5 class="card-title mt-2"><?= $sanpham[$i]['tensp'] ?></h5>
                 <p class="card-text"><?= $sanpham[$i]['mota'] ?></p>
                 <div class="button">
-                  <a href="?url=ctsp&ma=<?= $sanpham[$i]['idSP'] ?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
+                  <a href="?url=ctsp&ma=<?= $sanpham[$i]['idSP'] ?>&idLoai=<?= $sanpham[$i]['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
                 </div>
 
               </div>

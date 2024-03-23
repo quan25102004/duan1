@@ -42,16 +42,6 @@ function ctsp()
     // addBinhLuan($noidung);
     include "view/xshop/chitietsp.php";
 }
-// function them_bl(){
-//     if($_SERVER['REQUEST_METHOD']=='POST'){
-//         $noidung = $_POST['noidung'];
-//         $idKH = $_POST['idKH'];
-//         $idSP = $_POST['idSP'];
-//         themBinhLuan($noidung,$idKH,$idSP);
-//     }
-
-//     include "view/xshop/chitietsp.php";
-// }
 function keyWord()
 {
     $key = $_POST['kyw'];

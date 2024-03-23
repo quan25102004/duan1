@@ -192,52 +192,21 @@
                 <p class="sum">Tổng tiền</p>
             </div>
             <hr>
-            <div style="display: flex;">
 
+                 <div style="display: flex;">
                 <div class="name_pro">
-                    <img src="/pulic/img/dh1.jpg" alt width="100px">
-                    <p>Đông Hồ cao cấp</p>
+                    <img src="pulic/img/<?=$giohang['anh']?>" alt width="100px">
+                    <p name='tensp'><?=$giohang['tensp']?></p>
                 </div>
-                <p class="price">100.000</p>
-                <p class="number">1</p>
-                <p class="sum">100.000</p>
-                <input type="checkbox">
-            </div>
-
-            <hr>
-            <div style="display: flex;">
-                <div class="name_pro">
-                    <img src="/pulic/img/dh1.jpg" alt width="100px">
-                    <p>Đông Hồ cao cấp</p>
-                </div>
-                <p class="price">100.000</p>
-                <p class="number">1</p>
-                <p class="sum">100.000</p>
-                <input type="checkbox">
-            </div>
-            <hr>
-            <div style="display: flex;">
-                <div class="name_pro">
-                    <img src="/pulic/img/dh1.jpg" alt width="100px">
-                    <p>Đông Hồ cao cấp</p>
-                </div>
-                <p class="price">100.000</p>
-                <p class="number">1</p>
+                <p class="price"><?=$giohang['dongia']?></p>
+                <p class="number"><input class="number" type="number" min='1'></p>
                 <p class="sum">100.000</p>
                 <input type="checkbox">
             </div>
 
             <hr>
-            <div style="display: flex;">
-                <div class="name_pro">
-                    <img src="/pulic/img/dh1.jpg" alt width="100px">
-                    <p>Đông Hồ cao cấp</p>
-                </div>
-                <p class="price">100.000</p>
-                <p class="number">1</p>
-                <p class="sum">100.000</p>
-                <input type="checkbox">
-            </div>
+           
+    
         </div>
         <div class="body2" style="width: 35%;margin-top: 5%;margin-bottom: 5%;">
             <div style="padding: 30px; background-color: #f1f0f0;">

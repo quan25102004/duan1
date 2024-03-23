@@ -26,7 +26,7 @@
     .list {
         height: 1000px;
         width: 30%;
-        background-color: rgb(59, 155, 228);
+        background-color: rgb(40 64 81);
     }
 
     .db {
@@ -39,19 +39,21 @@
         text-align: center;
     }
 
-    td,tr {
+    td,
+    tr {
         text-align: center;
         border: 1px solid black;
-        
+
     }
 
     a {
         color: white;
         text-decoration: none;
     }
+
     .nav {
         display: block;
-    
+
         font-weight: 600;
     }
 
@@ -60,26 +62,33 @@
         width: 100%;
         display: block;
     }
-    .sub-nav{
-    padding-left: 10%;
-    padding-top: 4%;
-    padding-bottom: 4%;
-}
+
+    .sub-nav {
+        padding-left: 10%;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+
+
+    .logout{
+        font-weight: 700;
+         padding-left: 10%;
+
+    }
+
 </style>
 
 <body>
-<?php
-   if(!isset($_COOKIE['user'])){
-    header('location: ?url=login');
-    die;
-}
-  ?>
+    <?php
+    if (!isset($_COOKIE['user'])) {
+        header('location: ?url=login');
+        die;
+    }
+    ?>
     <div class="admin">
         <!-- header -->
         <div class="list">
-            <a href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg>Đăng xuất</a>
+          
             <div>
                 <ul class="nav">
                     <div class="sub-nav"> <a href="?url=loai">
@@ -113,11 +122,17 @@
                 </ul>
 
 
-            </div>
+            </div> <hr>
+          
+                <a class="logout" href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg> Đăng xuất</a>
+          
+              
         </div>
         <div class="db">
             <table border="1">
-                <tr style="background-color: antiquewhite;">
+                <tr style="background-color: #e1e1e1;">
 
                     <th>idBL</th>
                     <th>Noi dung</th>
