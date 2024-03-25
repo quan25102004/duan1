@@ -9,8 +9,8 @@ function addSanPham($tensp, $anh, $dongia, $soluong, $giamgia,$mota,$idLoai){
       VALUES('$dongia','$soluong','$tensp','$giamgia','$idLoai','$mota','$anh')";
       return getData($sql);
 }
-function suaSanPham($tensp, $anh, $dongia, $soluong, $giamgia,$mota,$idSP){
-      $sql = "UPDATE hanghoa SET tensp='$tensp', anh='$anh',dongia='$dongia',soluong='$soluong',giamgia='$giamgia',mota='$mota'
+function suaSanPham($tensp, $anh, $dongia, $soluong, $giamgia,$mota,$idSP,$idLoai){
+      $sql = "UPDATE hanghoa SET tensp='$tensp', anh='$anh',dongia='$dongia',soluong='$soluong',giamgia='$giamgia',mota='$mota',idLoai='$idLoai'
        WHERE idSP ='$idSP'";
       return getData($sql);
 }

@@ -73,13 +73,13 @@
   .button {
     text-decoration: none;
     width: 110px;
-    background-color: rgb(227, 198, 118);
+    background-color: #989494;
     padding: 10px;
     border-radius: 7px;
   }
 
   .button:hover {
-    background-color: rgb(130, 115, 73);
+    background-color: #6d6a6a;
   }
 
   .footer {
@@ -122,6 +122,7 @@
     display: inline-block;
     line-height: 46px;
     position: relative;
+    width: 100%;
   }
 
   #nav>li:hover>a {
@@ -145,6 +146,7 @@
   #nav .subnav li:hover {
     background-color: #ccc;
   }
+
 </style>
 
 <body>
@@ -174,6 +176,9 @@
         <li class="nav-item">
           <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
         </li>
+        <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
+                </li>
       </ul>
       <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
         cần
@@ -226,8 +231,8 @@
             <div class>
               <h5 class="card-title mt-2"><?= $sp['tensp'] ?></h5>
               <p class="card-text"><?= $sp['mota'] ?></p>
-              <div class="button">
-                <a href="?url=ctsp&ma=<?= $sp['idSP'] ?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
+              <div class="button" style="display: flex;">
+                <a class="xemchitiet" href="?url=ctsp&ma=<?= $sp['idSP']?>&idLoai=<?= $sp['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
               </div>
 
             </div>
@@ -237,8 +242,9 @@
     </div>
 
   </div>
-  <div class="container">
-    <div class=" d-flex footer w-100 ">
+  <div style="background-color: #f1f0f0;">
+<div class="container">
+    <div class=" d-flex footer w-100 pt-4">
       <div style="margin-left: 30px; width: 245px; margin-right: 100px;">
         <img src="pulic/img/logo.png" style="width: 150px; height: 50px;margin-bottom: 58px">
         <p class="card-text">Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650</p>
@@ -285,6 +291,8 @@
       </div>
     </div>
   </div>
+  </div>
+  
 
 </body>
 

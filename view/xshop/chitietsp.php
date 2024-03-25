@@ -10,6 +10,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <style>
+  body{
+    background-color: #f5f5f5;
+  }
   * {
     padding: 0;
     margin: 0;
@@ -49,14 +52,36 @@
 
   .deal {
     border: 1px solid black;
-    background-color: red;
+    background-color: #c40d2e;
+    color: #f6f6f6;
+    margin-top: 10px;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+  }
+  .add{
+    border: 1px solid black;
+    background-color: #ccc;
+    text-decoration: none;
     color: #f6f6f6;
     margin: 0;
-    width: 102px;
+    width: 100%;
     padding: 15px;
-
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
   }
-
+  a{
+    text-decoration: none;
+  }
+  .deal:hover {
+    background-color: #83081e;
+  }
+  .add:hover{
+    background-color: #6d6a6a;
+  }
   .footer {
     color: black;
   }
@@ -79,40 +104,54 @@
   h3 {
     height: 100px;
   }
-  #header{
-            height: 46px;
-        }
-        #nav > li{
-            display: block;
-        }
-        #nav li a{
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-        #nav li{
-            display: inline-block;
-            line-height: 46px;
-            position: relative;
-        }
-        #nav > li:hover > a{
-            display: inline-block;
-            background-color: #ccc;
-        }
-        #nav .subnav{
-            display: none;
-            position: absolute;
-            right: 5px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0);
-            padding:0px
-            
-        }
-        #nav li:hover .subnav{
-            display: block;
-        }
-        #nav .subnav li:hover{
-            background-color: #ccc;
-        }
+
+  #header {
+    height: 46px;
+  }
+
+  #nav>li {
+    display: block;
+  }
+
+  #nav li a {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #nav li {
+    display: inline-block;
+    line-height: 46px;
+    position: relative;
+    width: 100%;
+  }
+
+  #nav>li:hover>a {
+    display: inline-block;
+    background-color: #ccc;
+  }
+
+  #nav .subnav {
+    display: none;
+    position: absolute;
+    right: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0);
+    padding: 0px
+  }
+
+  #nav li:hover .subnav {
+    display: block;
+  }
+
+  #nav .subnav li:hover {
+    background-color: #ccc;
+  }
+  .price{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 </style>
 
 <body>
@@ -128,7 +167,7 @@
     <div class="container header">
       <div class="header-logo">
         <a href="?url=indexTrangChu"><img style="height: 30px;" src="pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
-        
+
       </div>
       <ul class="nav justify-content-center">
         <li class="nav-item">
@@ -143,52 +182,56 @@
         <li class="nav-item">
           <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
+        </li>
       </ul>
       <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
         cần
         giúp đỡ gì?</a>
-    
+
       <div id="header">
-            <ul id="nav">
-                <li><img
-                        src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"alt width="30px" style="border-radius: 50%;"> 
-                    <ul class="subnav" style="width: 100px;"> 
-                      <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
-                      <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
-                    </ul>
-                </li>
+        <ul id="nav">
+          <li><img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg" alt width="30px" style="border-radius: 50%;">
+            <ul class="subnav" style="width: 100px;">
+              <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
+              <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
             </ul>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="container">
-    <div class="prd">
+    <div style="margin-bottom:50px;margin-top:30px;">
+      <strong style="font-size:35px;">Chi tiết sản phẩm</strong>
+      <hr>
+    </div>
+    <div class="prd" style="background-color: #fff;padding:100px;border-radius:5px;">
       <div class="img-prd">
-        <?php foreach ($ctsp as $c) : ?>
-          <img src="pulic/img/<?= $c['anh'] ?>" alt="" style="width: 500px;height: 400px;">
-        <?php endforeach ?>
+        <img name='anh' src="pulic/img/<?= $ctsp['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
       </div>
+      <form action="?url=giohang&addcart=<?=$ma?>&ma=<?=$ma?>" method='post'>
       <div class="sub-prd">
-        <?php foreach ($ctsp as $c) : ?>
-          <p style="font-size: 40px;font-weight: bold;"><?= $c['tensp'] ?></p>
-          <strong style="font-size: 30px;font-weight: 400;"><?= $c['dongia'] . ".VNĐ" ?></strong>
-          <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
-          <p style="color: #9d9d9d;margin-top: 19px;"><?= $c['mota'] ?></p>
+        <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;" name='tensp'><?= $ctsp['tensp'] ?></p>
+        <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= $ctsp['dongia'] . ".VNĐ" ?></strong> <br> <br>
+        <input class="number" style="width: 50px;" type="number" name="soluong" min='1'>
+        <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
+        <p style="color: #9d9d9d;margin-top: 19px;font-family: 'Roboto', sans-serif;" name='mota'><?= $ctsp['mota'] ?></p>
+    <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
+    <input type="hidden" name="idSP" value="<?= $ma ?>">
+    <button type="submit" name='addcart' class="add" value="Thêm giỏ hàng">Thêm giỏ hàng</button>
+</form>
           <p class="deal">Mua ngay</p>
-        <?php endforeach ?>
+           
       </div>
 
     </div>
 
-    <div style="width: 500px; margin-top: 30px;">
-      <p style="font-size: 25px;">ĐÁNH GIÁ SẢN PHẨM</p>
-      <form action="" method="post">
-        <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
-        <input type="hidden" name="idSP" value="<?= $ma ?>">
-        <input type="text" name="noidung" style="width: 70%;" placeholder="Hãy điền tên vào đây">
-        <button type='submit' style="width: 29%;">Gui Binh Luan</button>
-      </form>
-      <hr>
+
+    <div style="width: 100%; margin-top: 20px;background-color: #fff;padding:10px;border-radius:5px;">
+      <p style="font-size: 20px;">ĐÁNH GIÁ SẢN PHẨM</p>
+      
       <div>
         <?php foreach ($binhluan as $b) : ?>
 
@@ -198,17 +241,37 @@
                 <img src="pulic/img/<?= $b['avata'] ?>" width="40px" height="40px" alt="" style="border-radius: 50%;align-items: center ;">
               </div>
               <div style="color: #828181;padding-left: 10px;">
-                <strong style=""><?= $b['tenKH'] ?></strong>
+                <p style="margin:0;color:black;font-weight:450"><?= $b['tenKH'] ?></p>
+                <a><?= $b['ngayBL'] ?> |</a> <a><?= $b['tensp'] ?></a>
               </div>
             </div>
-            <p style="color: #828181;margin-top:16px;"><?= $b['noidung'] ?></p>
+            <p style="color: #000;margin-top:16px;width:35%"><?= $b['noidung'] ?></p>
           </div>
           <hr>
-
         <?php endforeach ?>
       </div>
+      <form action="" method="post">
+        <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
+        <input type="hidden" name="idSP" value="<?= $ma ?>">
+        <input type="text" name="noidung" style="width: 50%;padding:3px;height:32px;" placeholder="Hãy điền bình luận vào đây">
+        <button type='submit' style="width: 10%;padding:2px; margin-top:5px;">Gửi bình luận</button>
+      </form>
     </div>
-  </div>
+    <p style="font-size: 20px;margin:10px;">SẢN PHẨM LIÊN QUAN</p>
+    <div style="width: 100%; margin-top: 20px;padding:10px;border-radius:5px;display:flex">
+    <?php foreach($sanpham as $s):?>
+      <div style="margin: 7px;background-color: #fff;width:150px">
+        <img src="pulic/img/<?=$s['anh']?>" alt="" width="150px" height="150px">
+        <p style="padding:5px;margin:0;" ><?=$s['tensp']?></p>
+        <div style="display:flex" >
+           <p style="padding:0px 5px;color:#f24261;font-weight:600;"  ><?=$s['dongia']?>.VNĐ </p>
+           <p class="price" style="color:#afaaaa;padding-left:15px">Đã bán 3</p>
+        </div>
+       
+      </div>
+      <?php endforeach?>
+    </div>
+  </div> <br> <hr>
   <div class="container">
     <div class=" d-flex footer w-100 ">
       <div style="width: 245px; margin-right: 100px;">

@@ -56,6 +56,7 @@ function editPro(){
         $soluong = $_POST['soluong'];
         $giamgia = $_POST['giamgia'];
         $mota = $_POST['mota'];
+        $idLoai = $_POST['idLoai'];
         if($file['size']>0){
             $anh=$file['name'];
             $anh = themFile($file['name'],$file['tmp_name']);
@@ -80,7 +81,7 @@ function editPro(){
         }
        if(count($error)==0){
 
-           suaSanPham($tensp, $anh, $dongia, $soluong, $giamgia,$mota,$idSP);
+           suaSanPham($tensp, $anh, $dongia, $soluong, $giamgia,$mota,$idSP,$idLoai);
            header('location: ?url=sanpham');
         }
       

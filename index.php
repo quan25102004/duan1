@@ -6,8 +6,7 @@ require_once "controllers/trangChuControllers.php";
 require_once "controllers/loginControllers.php";
 require_once "controllers/userControllers.php";
 require_once "controllers/binhluanControllers.php";
-require_once "controllers/tintucControllers.php";
-require_once "controllers/sachControllers.php";
+require_once "controllers/giohangControllers.php";
 require_once "global.php";
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
@@ -110,37 +109,13 @@ switch ($url) {
     case "suataikhoan":
         suaUser();
         break;
-    case "tintuc":
-        hienthitintuc();
-        break;
-    case "themtintuc":
-        themTinTuc();
-        break;
-    case "suatintuc":
-        suaTinTuc();
-        break;
-    case "xoatintuc":
-        xoaTinTuc();
-        break;
-    case "themsach":
-        themSach();
-        break;
-    case "suasach":
-        suaSach();
-        break;
-    case "xoasach":
-        xoaSach();
-        break;
-    case "sach":
-        hienthiSach();
-        break;
     case "camon":
         include_once "view/xshop/camon.php";
         break;
     case "thanhtoan":
         include_once "view/xshop/thanhtoan.php";
         break;
-        case "giohang":
-            include_once "view/xshop/giohang.php";
-            break;
+    case "giohang":
+        showGioHang();
+        break;
 }

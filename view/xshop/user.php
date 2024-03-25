@@ -189,6 +189,9 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
+                </li>
             </ul>
             <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
                 cần
@@ -251,8 +254,9 @@
 
     </div>
     <!-- footer -->
-    <div class="container">
-        <div class=" d-flex footer w-100  ">
+    <div class="mt-3" style="background-color: #f1f0f0;">
+  <div class="container">
+        <div class=" d-flex footer w-100 pt-4 ">
             <div style="margin-left: 30px; width: 245px; margin-right: 100px;">
                 <img src="pulic/img/logo.png" style="width: 150px; height: 50px;margin-bottom: 58px">
                 <p class="card-text">Công ty Cổ phần Dự Kim với số đăng ký
@@ -304,6 +308,8 @@
 
     </div>
 
+    </div>
+  
 </body>
 
 </html>

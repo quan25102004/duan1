@@ -21,11 +21,17 @@
     .admin {
         display: flex;
     }
+    .mota{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
-    .list {
-        height: 700px;
+.list {
+        height: 1000px;
         width: 30%;
-        background-color: rgb(59, 155, 228);
+        background-color: rgb(40 64 81);
     }
 
     .db {
@@ -52,7 +58,7 @@
 
     .nav {
         display: block;
-        text-align: center;
+
         font-weight: 600;
     }
 
@@ -61,6 +67,20 @@
         width: 100%;
         display: block;
     }
+
+    .sub-nav {
+        padding-left: 10%;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+
+
+    .logout{
+        font-weight: 700;
+         padding-left: 10%;
+
+    }
+
 </style>
 
 <body>
@@ -73,40 +93,33 @@
     <div class="admin">
         <!-- header -->
         <div class="list">
-            <a href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg>Đăng xuất</a>
+          
             <div>
                 <ul class="nav">
                     <div class="sub-nav"> <a href="?url=loai">
-                            <li>Loại hàng</li>
+                            <li>Quản lý Loại hàng</li>
                         </a></div>
                     <div class="sub-nav"><a href="?url=sanpham">
-                            <li>Sản Phẩm</li>
+                            <li>Quản lý Sản Phẩm</li>
                         </a></div>
                     <div class="sub-nav">
                         <a href="?url=donhang">
-                            <li>Đơn hàng</li>
+                            <li>Quản lý Đơn hàng</li>
                         </a>
                     </div>
                     <div class="sub-nav">
                         <a href="?url=taikhoan">
-                            <li>Tai khoan</li>
+                            <li>Quản lý tài khoản</li>
                         </a>
                     </div>
                     <div class="sub-nav">
                         <a href="?url=binhluan">
-                            <li>Binh luan</li>
-                        </a>
-                    </div>
-                    <div class="sub-nav">
-                        <a href="?url=tintuc">
-                            <li>Tin tuc</li>
+                            <li>Quản lý bình luận</li>
                         </a>
                     </div>
                     <div class="sub-nav">
                         <a href="?url=bieudo">
-                            <li>Bieu do</li>
+                            <li>Thống kê biểu đồ</li>
                         </a>
                     </div>
 
@@ -114,11 +127,17 @@
                 </ul>
 
 
-            </div>
+            </div> <hr>
+          
+                <a class="logout" href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg> Đăng xuất</a>
+          
+              
         </div>
         <div class="db">
             <table border="1">
-                <tr style="background-color: antiquewhite;">
+                <tr style="background-color: #e1e1e1;">
                     <th>idHH</th>
                     <th>Tên HH</th>
                     <th>IMG</th>
@@ -140,7 +159,7 @@
                         <td><?= $sp['dongia'] ?></td>
                         <td><?= $sp['soluong'] ?></td>
                         <td><?= $sp['giamgia'] ?></td>
-                        <td><?= $sp['mota'] ?></td>
+                        <td><p class="mota"><?= $sp['mota'] ?></p></td>
                         <td><?= $sp['tenloai'] ?></td>
                         <td>
 

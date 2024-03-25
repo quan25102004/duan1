@@ -1,6 +1,7 @@
 <?php
 require 'model/xshop.php';
 require_once 'model/loai.php';
+
 function listTrangChu()
 {
     $sanpham = hienThi();
@@ -30,6 +31,8 @@ function ctsp()
         themBinhLuan($noidung,$idKH,$idSP);
     }
     $ma = $_GET['ma'];
+    $idLoai = $_GET['idLoai'];
+    $sanpham = sanPhamLienQuan($idLoai);
     $ctsp = chiTietSanPham($ma);
     $binhluan = binhLuan($ma);
     $userCookie = $_COOKIE['user'];
@@ -39,16 +42,6 @@ function ctsp()
     // addBinhLuan($noidung);
     include "view/xshop/chitietsp.php";
 }
-// function them_bl(){
-//     if($_SERVER['REQUEST_METHOD']=='POST'){
-//         $noidung = $_POST['noidung'];
-//         $idKH = $_POST['idKH'];
-//         $idSP = $_POST['idSP'];
-//         themBinhLuan($noidung,$idKH,$idSP);
-//     }
-
-//     include "view/xshop/chitietsp.php";
-// }
 function keyWord()
 {
     $key = $_POST['kyw'];

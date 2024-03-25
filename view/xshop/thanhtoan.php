@@ -14,6 +14,7 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+       
     }
     
     .header {
@@ -94,6 +95,7 @@
         display: inline-block;
         line-height: 46px;
         position: relative;
+        width: 100%;
     }
     
     #nav>li:hover>a {
@@ -140,10 +142,10 @@
     <!-- Header -->
     <div class="main-header">
         <div class="container header">
-            <div class="header-logo">
-                <a href="?url=indexTrangChu"><img style="height: 30px;" src="/pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
-
-            </div>
+        <div class="header-logo">
+        <a href="?url=indexTrangChu"><img style="height: 30px;" src="pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
+        
+      </div>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="?url=indexTrangChu">Trang chủ</a>
@@ -156,6 +158,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
                 </li>
             </ul>
             <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
@@ -282,8 +287,9 @@
                             </div>
                         </div>
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt
-                            hàng</button>
+                        <button class="btn btn-primary btn-lg btn-block" style="background-color: black;margin-bottom:30px;" type="submit" name="btnDatHang"><a style=" text-decoration: none;
+        color: white;" href="?url=camon">Đặt
+                            hàng</a></button>
                     </div>
                 </div>
             </form>
