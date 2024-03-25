@@ -6,13 +6,24 @@ function showGioHang(){
         if(isset($_POST['addcart'])&&($_POST['addcart'])){
         $idKH= $_POST['idKH'];
         $idSP= $_POST['idSP'];
-        $sp=addGioHang($idKH,$idSP);
+        $soluong= $_POST['soluong'];
+        $sl = soLuongGioHang($idSP);
+        if($sl == 0){
+            $soluong=  $soluong;
+            addGioHang($idKH,$idSP,$soluong);
+        }else{
+            $soluong=$soluong + $sl['soluong']; 
+            suaSoLuong($soluong,$idSP);
+        }
+        
     }
+
     }
-    $addcart = $_GET['addcart'];
-    $giohang = gioHang($addcart);
+    // $ma = $_GET['ma'];
+
+    $giohang = gioHang();
+    // $soluong = soLuongGioHang($ma);
     include "view/xshop/giohang.php";
 }
 
-   
 ?>

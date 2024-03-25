@@ -211,12 +211,13 @@
       <div class="img-prd">
         <img name='anh' src="pulic/img/<?= $ctsp['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
       </div>
+      <form action="?url=giohang&addcart=<?=$ma?>&ma=<?=$ma?>" method='post'>
       <div class="sub-prd">
         <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;" name='tensp'><?= $ctsp['tensp'] ?></p>
-        <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= $ctsp['dongia'] . ".VNĐ" ?></strong>
+        <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= $ctsp['dongia'] . ".VNĐ" ?></strong> <br> <br>
+        <input class="number" style="width: 50px;" type="number" name="soluong" min='1'>
         <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
         <p style="color: #9d9d9d;margin-top: 19px;font-family: 'Roboto', sans-serif;" name='mota'><?= $ctsp['mota'] ?></p>
-        <form action="?url=giohang&addcart=<?=$ma?>" method='post'>
     <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
     <input type="hidden" name="idSP" value="<?= $ma ?>">
     <button type="submit" name='addcart' class="add" value="Thêm giỏ hàng">Thêm giỏ hàng</button>
