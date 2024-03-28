@@ -204,7 +204,7 @@
                 </div>
                 <p class="price"><?= $g['dongia'] ?></p>
                 <p class="number"><input class="number" type="number" min='1' value="<?= $g['soluong'] ?>"></p>
-                <p class="sum"><?= $g['soluong'] * $g['dongia'] ?></p>
+                <p class="sum"><?= $g['tongtien']?></p>
             </div>
             <?php endforeach ?>
             <hr>
@@ -217,22 +217,37 @@
                 <div style="margin-top: 10px;">
                     <div style="display: flex;justify-content: space-between;">
                         <p>Tổng sản phẩm</p>
-                        <p>1</p>
+                        <p><?= $tong?></p>
+                    </div>
+                    <div style="display: flex;justify-content: space-between;">
+                        <p>Tổng số lượng</p>
+                        <p><?= $tongsp?></p>
                     </div>
                     <div style="display: flex;justify-content: space-between;">
                         <p>Tổng tiền hàng</p>
-                        <p>100.000</p>
+                        <p><?= $thanhtien?></p>
                     </div>
                     <div style="display: flex;justify-content: space-between;">
                         <p>Thành tiền</p>
-                        <p>100.000</p>
+                        <p><?= $thanhtien?></p>
                     </div>
+                    <h4 class="mb-3">Hình thức thanh toán</h4>
 
+<div class="d-block my-3">
+    <div class="custom-control custom-radio">
+        <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required="" value="2">
+        <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required="" value="3">
+        <label class="custom-control-label" for="httt-3">Thanh Toán Khi Nhận Hàng</label>
+    </div>
+</div>
                 </div>
 
             </div>
             <div style="width: 100%;text-align: center;" class="order">
-                <a href="?url=thanhtoan" style="text-decoration: none;">
+                <a href="?url=camon" style="text-decoration: none;">
                     <p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
                     </p>
                 </a>
@@ -298,4 +313,3 @@
 </body>
 
 </html>
-//ewewwe

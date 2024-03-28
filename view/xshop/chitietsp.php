@@ -211,7 +211,7 @@
       <div class="img-prd">
         <img name='anh' src="pulic/img/<?= $ctsp['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
       </div>
-      <form action="?url=giohang&addcart=<?=$ma?>&ma=<?=$ma?>" method='post'>
+      <form action="?url=giohang" method='post'>
       <div class="sub-prd">
         <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;" name='tensp'><?= $ctsp['tensp'] ?></p>
         <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= $ctsp['dongia'] . ".VNĐ" ?></strong> <br> <br>

@@ -103,10 +103,9 @@
     margin-top: 5%;
     margin-bottom: 5%;
     display: flex;
-
     justify-content: center;
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 2s;
     
     
   }
@@ -115,9 +114,7 @@
     0% {
       opacity: 0;
     }
-    50% {
-      opacity: 0.5;
-    }
+
     100% {
       opacity: 1;
 

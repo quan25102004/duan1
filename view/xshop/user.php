@@ -232,7 +232,11 @@
                     <input type="text" name="email" value="<?=$hienthi['email'] ?>">
                     <p style="color:red"><?= $error['tenKH'] ?? ''?></p>
                 </div>
-
+                <div>
+                    <p class="input">Địa chỉ:</p>
+                    <input type="text" name="diachi" value="<?=$hienthi['diachi'] ?>">
+                    <p style="color:red"><?= $error['diachi'] ?? ''?></p>
+                </div>
                 <div>
                     <p class="input">Số điện thoại:</p>
                     <input type="text" name="sdt" value="<?=$hienthi['sdt'] ?>">

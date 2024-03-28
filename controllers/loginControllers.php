@@ -24,12 +24,12 @@ function dangnhap()
         if ($erorr['tenDN'] == "" && $erorr['matKhau'] == "") {
             if ($tenDN == $check[0]["tenDN"] && $matKhau == $check[0]["matKhau"] && $check[0]["role"] == 0) {
                 $userSerialized = serialize($check);
-                setcookie('user', $userSerialized, time() + (30 * 60), '/');
+                setcookie('user', $userSerialized, time() + (60 * 60), '/');
                 header('location: ?url=indexTrangChu');
                 die;
             } else if ($tenDN == $check[0]["tenDN"] && $matKhau == $check[0]["matKhau"] && $check[0]["role"] == 1) {
                 $userSerialized = serialize($check);
-                setcookie('user', $userSerialized, time() + (30 * 60), '/');
+                setcookie('user', $userSerialized, time() + (60 * 60), '/');
                 header('location: ?url=/');
                 die;
             } else {
@@ -42,7 +42,7 @@ function dangnhap()
 }
 function thoat()
 {
-    setcookie('user', "", time() - (30 * 60), '/');
+    setcookie('user', "", time() - (60 * 60), '/');
     header('location: ?url=login');
     die;
     include "view/xshop/trangchu.php";
@@ -93,6 +93,7 @@ function editTK()
         $idKH = $_POST['idKH'];
         $tenKH = $_POST['tenKH'];
         $email = $_POST['email'];
+        $diachi = $_POST['diachi'];
         $sdt = $_POST['sdt'];
         $file = $_FILES['avata'];
         $avata = $_POST['avata'];
@@ -100,7 +101,7 @@ function editTK()
             $avata = $file['name'];
             $avata = themFile($file['name'], $file['tmp_name']);
         }
-        suaTK($tenKH, $email, $sdt, $avata, $idKH);
+        suaTK($tenKH, $email,$diachi, $sdt, $avata, $idKH);
     }
     $userCookie = $_COOKIE['user'];
     $userLogin = unserialize($userCookie);

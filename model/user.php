@@ -1,7 +1,7 @@
 <?php
 require_once 'db.php';
 function hienThiUser(){
-    $sql = "SELECT * FROM khachhang ";
+    $sql = "SELECT * FROM khachhang";
    return getData($sql);
 }
 function xoaUser($idKH){
@@ -12,8 +12,8 @@ function User($idKH){
     $sql = "SELECT * FROM khachhang WHERE idKH = '$idKH'";
     return getData($sql,false);
  }
- function editUser($tenKH,$email,$sdt,$avata,$idKH){
-    $sql = "UPDATE khachhang SET tenKH='$tenKH', email='$email',sdt='$sdt',avata='$avata'
+ function editUser($tenKH,$email,$diachi,$sdt,$avata,$idKH){
+    $sql = "UPDATE khachhang SET tenKH='$tenKH', email='$email',diachi='$diachi',sdt='$sdt',avata='$avata'
     WHERE idKH ='$idKH'";
     return getData($sql);
  }

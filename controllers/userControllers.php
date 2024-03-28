@@ -26,6 +26,7 @@ function deleteTaiKhoan(){
         $tenKH = $_POST['tenKH'];
         $matKhau = $_POST['matKhau'];
         $email = $_POST['email'];
+        $diachi = $_POST['diachi'];
         $sdt = $_POST['sdt'];
         $file = $_FILES['avata'];
         $avata = $_POST['avata'];
@@ -39,6 +40,9 @@ function deleteTaiKhoan(){
         if ($email == '') {
             $error['email'] = "*Bạn chưa nhập";
         }
+        if ($diachi == '') {
+            $error['diachi'] = "*Bạn chưa nhập";
+        }
         if ($sdt == '') {
             $error['sdt'] = "*Bạn chưa nhập";
         }
@@ -48,15 +52,15 @@ function deleteTaiKhoan(){
         if ($matKhau == '') {
             $error['matKhau'] = "*Bạn chưa nhập";
         }else{
-            editUser($tenKH, $email, $sdt, $avata, $idKH);
+            editUser($tenKH, $email,$diachi, $sdt, $avata, $idKH);
             header('location: ?url=taikhoan');
             die;
         }
         
     }
-    $userCookie = $_COOKIE['user'];
-    $userLogin = unserialize($userCookie);
-    $hienthi = User($userLogin[0]["idKH"]);
+    $idKH = $_GET['idKH'];
+    $hienthi = User($idKH);
+    // var_dump($hienthi);
     include "view/user/suaUser.php";
 }
 ?>

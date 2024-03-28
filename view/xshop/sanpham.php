@@ -210,13 +210,13 @@
               </option>
             <?php endforeach ?>
           </select>
-          <button type="submit">Loc</button>
+          <button type="submit" style="padding:0 5px;">Lọc</button>
         </form>
 
       </div>
       <div style="margin-top:40px">
         <form action="?url=key" method="POST">
-          <input type="text" name="kyw" id="kyw" placeholder="Tìm kiếm">
+          <input type="text" name="kyw" id="kyw" placeholder="Tìm kiếm" style="padding-left: 5px;">
         </form>
       </div>
 

@@ -1,27 +1,24 @@
 <?php
 require_once 'db.php';
 function donHang(){
-    $sql = "SELECT d.*,t.tenTT FROM donhang d JOIN trangthai t ON d.idTT = t.idTT";
+    $sql = "SELECT d.*,k.tenKH,k.diachi FROM donhang d JOIN khachhang k ON d.idKH = k.idKH";
     return getData($sql);
 }
-function donHang_trangThai(){
-    $sql = "SELECT * FROM trangthai";
-    return getData($sql);
-}
+
 function donHang_khachHang(){
     $sql = "SELECT * FROM khachhang ";
     return getData($sql);
 }
 
-function themDonHang( $ngaydat, $diachi, $tongtien, $ghichu, $idKH, $idTT){
-        $sql = "INSERT INTO donhang(ngaydat, diachi, tongtien, ghichu, idKH, idTT)
-        VALUE( '$ngaydat', '$diachi', '$tongtien', '$ghichu', '$idKH', '$idTT')";
+function themDonHang($tongsp, $thanhtien, $idKH, $idDH){
+        $sql = "INSERT INTO donhang(tongsp, thanhtien, idKH, idDH)
+        VALUE('$tongsp', '$thanhtien', '$idKH', '$idDH')";
         return getData($sql);
     
 }
-function suaDonHang($idDH,$ngaydat, $diachi, $tongtien, $ghichu, $idKH, $idTT){
+function suaDonHang($idDH, $tongsp, $thanhtien, $idKH){
     $sql = "UPDATE donhang
-    SET  ngaydat='$ngaydat', diachi='$diachi', tongtien='$tongtien', ghichu='$ghichu', idKH='$idKH', idTT='$idTT'
+    SET  tongsp='$tongsp', thanhtien='$thanhtien', idKH='$idKH'
     WHERE idDH='$idDH'";
     return getData($sql);
 }

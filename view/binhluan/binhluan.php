@@ -139,6 +139,7 @@
                     <th>Ngay binh luan</th>
                     <th>idKH</th>
                     <th>idSP</th>
+                    <th ><a href="" style="color:black"> </a></th>
                     
                 </tr>
                 <?php foreach ($binhluan as $b) : ?>
