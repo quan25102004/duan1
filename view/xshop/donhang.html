@@ -186,64 +186,52 @@
     <!-- BODY -->
     <div class="container" style="display: flex; align-items: unset;">
         <div class="body1" style="width: 70%; margin-right: 20px;margin-top: 0%;">
-            <strong style="font-size: 30px;">Giỏ hàng của bạn</strong>
+            <strong style="font-size: 20px;">Trạng Thái Đơn Hàng Của Bạn</strong>
             <div style="display: flex;padding-top: 30px;">
                 <p class="name_pro">Tên sản phẩm</p>
                 <p class="price">Giá tiền</p>
                 <p class="number">Số lượng</p>
                 <p class="sum">Tổng tiền</p>
+                <p class="sum">Trạng Thái</p>
 
             </div>
             <hr>
-            <?php foreach($giohang as $g): ?>
-
             <div style="display: flex;">
+
                 <div class="name_pro">
-                    <img src="pulic/img/<?= $g['anh'] ?>" alt width="100px">
-                    <p name='tensp'>
-                        <?= $g['tensp'] ?>
-                    </p>
+                    <img src="/pulic/img/dhdb4.avif" alt width="100px">
+                    <p>Đông Hồ cao cấp</p>
                 </div>
-                <p class="price">
-                    <?= $g['dongia'] ?>
-                </p>
-                <p class="number"><input class="number" type="number" min='1' value="<?= $g['soluong'] ?>"></p>
-                <p class="sum">
-                    <?= $g['soluong'] * $g['dongia'] ?>
-                </p>
+                <p class="price">100.000</p>
+                <p class="number">1</p>
+                <p class="sum">100.000</p>
+                <p class="number" style="color: blue;">Đang Chờ Xác Nhận</p>
+
+                <input type="checkbox">
+
             </div>
-            <?php endforeach ?>
+            <div style="display: flex;">
+
+                <div class="name_pro">
+                    <img src="/pulic/img/dhbac2.avif" alt width="100px">
+                    <p>Đông Hồ cao cấp</p>
+                </div>
+                <p class="price">100.000</p>
+                <p class="number">1</p>
+                <p class="sum">100.000</p>
+                <p class="number" style="color:red;">Đang Giao Hàng</p>
+
+                <input type="checkbox">
+
+            </div>
+
+
             <hr>
-
         </div>
-        <div class="body2" style="width: 35%;margin-top: 5%;margin-bottom: 5%;">
-            <div style="padding: 30px; background-color: #f1f0f0;">
-                <strong style="font-size: 20px;">Tổng tiền giỏ hàng</strong>
-                <div style="margin-top: 10px;">
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Tổng sản phẩm</p>
-                        <p>1</p>
-                    </div>
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Tổng tiền hàng</p>
-                        <p>100.000</p>
-                    </div>
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Thành tiền</p>
-                        <p>100.000</p>
-                    </div>
 
-                </div>
 
-            </div>
-            <div style="width: 100%;text-align: center;" class="order">
-                <a href="?url=thanhtoan" style="text-decoration: none;">
-                    <p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
-                    </p>
-                </a>
-
-            </div>
-        </div>
+    </div>
+    </div>
     </div>
     <!-- footer -->
     <div style="background-color: #f1f0f0;">
