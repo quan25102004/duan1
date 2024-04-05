@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,162 +6,345 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+</head>
 <style>
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-         font-family: 'Arial';
+       
     }
-
-    .admin {
+    
+    .header {
+        align-items: center;
+        justify-content: space-between;
         display: flex;
     }
-
-    .list {
-        height: 1000px;
-        width: 30%;
-        background-color: rgb(40 64 81);
+    
+    .main-header {
+        background-image: linear-gradient(#f6f6f6, rgb(156, 156, 156), #484848);
     }
-
-    .db {
-        width: 70%;
-
+    
+    .nav-link {
+        color: rgb(255, 255, 255);
+        font-weight: bold;
     }
-
-    th {
-        width: 150px;
-        text-align: center;
+    
+    .nav-link:hover {
+        color: rgb(0, 0, 0);
     }
+    
+    .prd {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: initial;
+    }
+    
+    .sub-prd {
+        margin-left: 10%;
+    }
+    /* .deal {
+    border: 1px solid black;
+    background-color: red;
+    color: #f6f6f6;
+    margin: 0;
+    width: 102px;
+    padding: 15px;
 
-    td,
-    tr {
-        text-align: center;
+  } */
+    
+    .footer {
+        color: black;
+    }
+    
+    .icon {
         border: 1px solid black;
-
+        margin-right: 20px;
+        padding: 5px;
+        border-radius: 50%;
+        color: #fff;
+        background-color: rgb(211, 31, 31);
     }
-
-    a {
-        color: white;
-        text-decoration: none;
+    
+    .img-footer {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
     }
-
-    .nav {
+    
+    h3 {
+        height: 100px;
+    }
+    
+    #header {
+        height: 46px;
+    }
+    
+    #nav>li {
         display: block;
-
-        font-weight: 600;
     }
-
-    .sub-nav:hover {
-        background-color: rgb(85, 120, 182);
+    
+    #nav li a {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    #nav li {
+        display: inline-block;
+        line-height: 46px;
+        position: relative;
         width: 100%;
+    }
+    
+    #nav>li:hover>a {
+        display: inline-block;
+        background-color: #ccc;
+    }
+    
+    #nav .subnav {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0);
+        padding: 0px
+    }
+    
+    #nav li:hover .subnav {
         display: block;
     }
-
-    .sub-nav {
-        padding-left: 10%;
-        padding-top: 4%;
-        padding-bottom: 4%;
+    
+    #nav .subnav li:hover {
+        background-color: #ccc;
     }
-
-
-    .logout{
-        font-weight: 700;
-         padding-left: 10%;
-
+    
+    .content {
+        height: 500px;
     }
-
+    
+    .content1 {
+        margin-left: 40px;
+    }
+    
+    .content2 {
+        float: right;
+        border: solid red;
+        height: 500px;
+        margin-top: -130px;
+        margin-right: 20px;
+    }
 </style>
 
 <body>
-    <?php
-    if (!isset($_COOKIE['user'])) {
-        header('location: ?url=login');
-        die;
-    }
-    ?>
-    <div class="admin">
-        <!-- header -->
-        <div class="list">
-          
-            <div>
-                <ul class="nav">
-                    <div class="sub-nav"> <a href="?url=loai">
-                            <li>Quản lý Loại hàng</li>
-                        </a></div>
-                    <div class="sub-nav"><a href="?url=sanpham">
-                            <li>Quản lý Sản Phẩm</li>
-                        </a></div>
-                    <div class="sub-nav">
-                        <a href="?url=donhang">
-                            <li>Quản lý Đơn hàng</li>
-                        </a>
-                    </div>
-                    <div class="sub-nav">
-                        <a href="?url=taikhoan">
-                            <li>Quản lý tài khoản</li>
-                        </a>
-                    </div>
-                    <div class="sub-nav">
-                        <a href="?url=binhluan">
-                            <li>Quản lý bình luận</li>
-                        </a>
-                    </div>
-                    <div class="sub-nav">
-                        <a href="?url=bieudo">
-                            <li>Thống kê biểu đồ</li>
-                        </a>
-                    </div>
 
+    <!-- Header -->
+    <!-- Header -->
+    <div class="main-header">
+        <div class="container header">
+        <div class="header-logo">
+        <a href="?url=indexTrangChu"><img style="height: 30px;" src="pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
+        
+      </div>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="?url=indexTrangChu">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?url=indexSanPham">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?url=gioithieu">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" href="?url=lienhe">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-disabled="true" href="?url=giohang">Giỏ hàng</a>
+                </li>
+            </ul>
+            <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
+        cần
+        giúp đỡ gì?</a>
 
+            <div id="header">
+                <ul id="nav">
+                    <li><img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg" alt width="30px" style="border-radius: 50%;">
+                        <ul class="subnav" style="width: 100px;">
+                            <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
+                            <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+                        </ul>
+                    </li>
                 </ul>
-
-
-            </div> <hr>
-          
-                <a class="logout" href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg> Đăng xuất</a>
-          
-              
+            </div>
         </div>
-        <div class="db">
-            <table border="1">
-                <tr style="background-color: #e1e1e1;">
-                    <th>IDDH</th>
-                    <th>IDKH</th>
-                    <th>Địa chỉ</th>
-                    <th>Tổng sản phẩm</th>
-                    <th>Thành tiền</th>
-                    
-                    <th ><a href="" style="color:black"> </a></th>
-                    
-                </tr>
-                <?php foreach ($donhang as $dh) : ?>
-                    <tr>
-                        <td><?= $dh['idDH'] ?></td>
-                        <td><?= $dh['tenKH'] ?></td>
-                        <td><?= $dh['diachi'] ?></td>
-                        <td><?= $dh['tongsp'] ?></td>
-                        <td><?= $dh['thanhtien'] ?></td>
-                     
-                        <td>
-                        <a href="?url=suadonhang&idDH=<?=$dh['idDH']?>"> <svg xmlns="http://www.w3.org/2000/svg" style="color: green;" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                                </svg></a>
-                            <a onclick="confirm('ban muon xoa chu')"  href="?url=xoadonhang&idDH=<?=$dh['idDH']?>"><svg style="color: rgb(244, 8, 8);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
-                                </svg></a>
-                        </td>
-                    </tr>
-                <?php endforeach ?>
-            </table>
+    </div>
 
+
+
+    <!-- end header -->
+
+    <main role="main">
+        <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
+        <div class="container mt-4">
+            <form class="needs-validation" name="" method="post" action="">
+                <input type="hidden" name="" value="">
+
+                <div class="py-5 text-center">
+                    <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
+                    <h2>Thanh toán</h2>
+                    <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt hàng.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted">Giỏ hàng</span>
+                            <span class="badge badge-secondary badge-pill"></span>
+                        </h4>
+                        <ul class="list-group mb-3">
+
+
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Đồng Hồ 2</h6>
+
+                                    <span class="text-muted">1.000.000</span>
+                                </div>
+                                <span class="text-muted">1.000.000</span>
+                            </li>
+
+
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Đồng Hồ 1</h6>
+
+                                    <span class="text-muted">1.000.000</span>
+                                </div>
+                                <span class="text-muted">1.000.000</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Tổng thành tiền</span>
+                                <strong>143520000</strong>
+                            </li>
+
+                        </ul>
+
+
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Mã khuyến mãi">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary">Xác nhận</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Thông tin khách hàng</h4>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="kh_ten">Họ tên</label>
+                                <input type="text" class="form-control" name="" id="" value="Nhập Họ Và Tên" readonly="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="">Địa chỉ</label>
+                                <input type="text" class="form-control" name="kh_diachi" id="kh_diachi" value="" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Điện thoại</label>
+                                <input type="text" class="form-control" name="" id="" value="" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Email</label>
+                                <input type="text" class="form-control" name="" id="" value="" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">Ngày sinh</label>
+                                <input type="text" class="form-control" name="" id="" value="" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="">CMND</label>
+                                <input type="text" class="form-control" name="" id="" value="" readonly="">
+                            </div>
+                        </div>
+
+                        <h4 class="mb-3">Hình thức thanh toán</h4>
+
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                                <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required="" value="1">
+                                <label class="custom-control-label" for="httt-1">Tiền mặt</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required="" value="2">
+                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required="" value="3">
+                                <label class="custom-control-label" for="httt-3">Thanh Toán Khi Nhận Hàng</label>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <button class="btn btn-primary btn-lg btn-block" style="background-color: black;margin-bottom:30px;" type="submit" name="btnDatHang"><a style=" text-decoration: none;
+        color: white;" href="?url=camon">Đặt
+                            hàng</a></button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <!-- End block content -->
+    </main>
+    </div>
+
+    <div class="container">
+        <div class=" d-flex footer w-100 ">
+            <div style="width: 245px; margin-right: 100px;">
+                <img src="pulic/img/logo.png" style="width: 150px; height: 50px;margin-bottom: 58px">
+                <p class="card-text">Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650</p>
+                <p class="card-text">Địa chỉ đăng ký: Tổ dxân phố Tháp, P.Đại Mỗ, Q.Nam Từ Liêm, TP.Hà Nội, Việt Nam</p>
+                <p class="card-text">Số điện thoại: 0243 205 2222/ 090 589 8683</p>
+                <img class='img-footer' src="https://tse2.mm.bing.net/th?id=OIP.cOz92GK9w_2_VxUIWBL0ngHaHa&pid=Api&P=0&h=220" alt="">
+                <img class='img-footer' src="https://tse2.mm.bing.net/th?id=OIP.4AecT4P_DW-rKATZAZmd1wHaGC&pid=Api&P=0&h=220" alt="">
+                <img class='img-footer' src="https://psfonttk.com/wp-content/uploads/2020/09/Instagram-Logo-PNG.png" alt="">
+                <img class='img-footer' src="https://tse1.mm.bing.net/th?id=OIP.wkwaDUBXO3d4rtwTwMEVhwHaGF&pid=Api&P=0&h=220" alt="">
+            </div>
+            <div class="card-body me-5">
+                <h3>Giới thiệu</h3>
+                <p class="card-text">Về IVY moda</p>
+                <p class="card-text">Tuyển dụng</p>
+                <p class="card-text">Hệ thống cửa hàng</p>
+            </div>
+            <div class="card-body me-5">
+                <h3>Dịch vụ khách hàng</h3>
+                <p class="card-text">Dịch vụ điều khoản</p>
+                <p class="card-text">Hướng dẫn mua hàng</p>
+                <p class="card-text">Chính sách thanh toán</p>
+                <p class="card-text">Chính sách đối trả</p>
+                <p class="card-text">Chính sách bảo hành</p>
+                <p class="card-text">Chính sách vận chuyển</p>
+                <p class="card-text">Hệ thống cửa hàng</p>
+                <p class="card-text">Q&A</p>
+            </div>
+            <div class="card-body me-5">
+                <h3>Liên hệ</h3>
+                <p class="card-text">Hotline</p>
+                <p class="card-text">Email</p>
+                <p class="card-text">Live chat</p>
+                <p class="card-text">Messenger</p>
+                <p class="card-text">Facebook</p>
+                <p class="card-text">Liên hệ</p>
+            </div>
+            <div class="card-body ">
+                <h3>Download App</h3>
+                <img src="https://pubcdn.ivymoda.com/ivy2/images/appstore.png" alt="">
+                <div class="pt-3">
+
+                    <img src="	https://pubcdn.ivymoda.com/ivy2/images/googleplay.png" alt="">
+                </div>
+            </div>
         </div>
     </div>
 </body>

@@ -13,7 +13,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
   }
 
   .a {
@@ -214,95 +213,6 @@
       </div>
     </div>
   </div>
-  <!-- Banner -->
-  <div class="banner">
-    <img style="width: 100%; height: 500px;" src="pulic/img/banner.jpg" alt>
-  </div>
-  <!-- BODY -->
-  <div class="container">
-    <div class="body">
-      <p class="text">Sản Phẩm Hot</p>
-
-      <div class=" row ">
-        <?php for ($i = 0; $i <= 5; $i++) : ?>
-          <div class=" col-lg-4 col-md-6 col-sm-12 mb-5" style="display: flex;justify-content: center;">
-            <div class="product">
-              <img src="pulic/img/<?= $sanpham[$i]['anh'] ?>" class="card-img-top" alt="..." style="height: 230px;width: 100%;;border-radius:10px;box-shadow: 0 0 10px rgba(0, 0, 0);margin-bottom:10px;">
-              <div class>
-                <div class="name_sp">
-                  <h5 class="card-title mt-2" style="margin-bottom: 15px;"><?= $sanpham[$i]['tensp'] ?></h5>
-                </div>
-                <!-- <p class="card-text"><?= $sanpham[$i]['mota'] ?></p> -->
-                <p class="card-text" style="font-weight: bold;color:#f24261;text-align: center;"><?= number_format($sanpham[$i]['dongia'], 0, ',', '.')  ?>VNĐ</p>
-                <div class="button">
-                  <a href="?url=ctsp&ma=<?= $sanpham[$i]['idSP'] ?>&idLoai=<?= $sanpham[$i]['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        <?php endfor ?>
-      </div>
-    </div>
-  </div>
-  <div class="" style="text-align: center;">
-    <a href="" style="padding: 15px 30px;background-color: #ccc;border:1px solid #989494;  border-radius: 5px;text-decoration: none;">Xem thêm</a>
-  </div>
-  <!-- footer -->
-  <div style="background-color: #f1f0f0;">
-    <div class="container">
-      <div class=" d-flex footer w-100 pt-4 ">
-        <div style="margin-left: 30px; width: 245px; margin-right: 100px;">
-          <img src="pulic/img/logo.png" style="width: 150px; height: 50px;margin-bottom: 58px">
-          <p class="card-text">Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650</p>
-          <p class="card-text">Địa chỉ đăng ký: Tổ dxân phố Tháp, P.Đại Mỗ, Q.Nam Từ Liêm, TP.Hà Nội, Việt Nam</p>
-          <p class="card-text">Số điện thoại: 0243 205 2222/ 090 589 8683</p>
-          <img class='img-footer' src="https://tse2.mm.bing.net/th?id=OIP.cOz92GK9w_2_VxUIWBL0ngHaHa&pid=Api&P=0&h=220" alt="">
-          <img class='img-footer' src="https://tse2.mm.bing.net/th?id=OIP.4AecT4P_DW-rKATZAZmd1wHaGC&pid=Api&P=0&h=220" alt="">
-          <img class='img-footer' src="https://psfonttk.com/wp-content/uploads/2020/09/Instagram-Logo-PNG.png" alt="">
-          <img class='img-footer' src="https://tse1.mm.bing.net/th?id=OIP.wkwaDUBXO3d4rtwTwMEVhwHaGF&pid=Api&P=0&h=220" alt="">
-        </div>
-        <div class="card-body me-5">
-          <h3>Giới thiệu</h3>
-          <p class="card-text">Về IVY moda</p>
-          <p class="card-text">Tuyển dụng</p>
-          <p class="card-text">Hệ thống cửa hàng</p>
-        </div>
-        <div class="card-body me-5">
-          <h3>Dịch vụ khách hàng</h3>
-          <p class="card-text">Dịch vụ điều khoản</p>
-          <p class="card-text">Hướng dẫn mua hàng</p>
-          <p class="card-text">Chính sách thanh toán</p>
-          <p class="card-text">Chính sách đối trả</p>
-          <p class="card-text">Chính sách bảo hành</p>
-          <p class="card-text">Chính sách vận chuyển</p>
-          <p class="card-text">Hệ thống cửa hàng</p>
-          <p class="card-text">Q&A</p>
-        </div>
-        <div class="card-body me-5">
-          <h3>Liên hệ</h3>
-          <p class="card-text">Hotline</p>
-          <p class="card-text">Email</p>
-          <p class="card-text">Live chat</p>
-          <p class="card-text">Messenger</p>
-          <p class="card-text">Facebook</p>
-          <p class="card-text">Liên hệ</p>
-        </div>
-        <div class="card-body ">
-          <h3>Download App</h3>
-          <img src="https://pubcdn.ivymoda.com/ivy2/images/appstore.png" alt="">
-          <div class="pt-3">
-
-            <img src="	https://pubcdn.ivymoda.com/ivy2/images/googleplay.png" alt="">
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-
-
+    
 </body>
-
 </html>

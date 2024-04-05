@@ -73,6 +73,14 @@
     .logout{
         font-weight: 700;
          padding-left: 10%;
+        /* background-color: red; */
+        
+    }
+
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
 
     }
 
@@ -91,6 +99,12 @@
           
             <div>
                 <ul class="nav">
+                <div class="sub-nav" style="font-size: 25px;font-style:italic;color:#fff"> 
+                            <li><svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                                    <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+                                </svg> DATABASE</li>
+                        </div>
                     <div class="sub-nav"> <a href="?url=loai">
                             <li>Quản lý Loại hàng</li>
                         </a></div>
@@ -122,20 +136,25 @@
                 </ul>
 
 
-            </div> <hr>
-          
-                <a class="logout" href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg> Đăng xuất</a>
+            </div> 
+            <div style="width: 100%;height: 1px;background-color: #fff;"></div>
+            <div style="margin-top: 20px;">
+    <a class="logout" href="?url=logout"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+        </svg> Đăng xuất</a>
+
+</div>
           
               
         </div>
         <div class="db">
+            <p><?= $error ?? "" ?></p>
             <table border="1">
                 <tr style="background-color: #e1e1e1;">
                     <th>idLoai</th>
                     <th>Tên Loại</th>
                     <th ><a href="?url=themloai" style="color:black">Thêm </a></th>
+                    
                    
                 </tr>
                 <?php foreach ($loai as $l): ?>
@@ -156,9 +175,9 @@
                 <?php endforeach ?>
                 <a href=""></a>
             </table>
-
         </div>
     </div>
+        
 </body>
 
 </html>

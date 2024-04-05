@@ -4,6 +4,10 @@ function hienThiUser(){
     $sql = "SELECT * FROM khachhang";
    return getData($sql);
 }
+function hienThiTenDN(){
+    $sql = "SELECT tenDN FROM khachhang";
+   return getData($sql);
+}
 function xoaUser($idKH){
     $sql = "DELETE FROM khachhang WHERE idKH='$idKH'";
     return SQL($sql);

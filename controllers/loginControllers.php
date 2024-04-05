@@ -30,7 +30,7 @@ function dangnhap()
             } else if ($tenDN == $check[0]["tenDN"] && $matKhau == $check[0]["matKhau"] && $check[0]["role"] == 1) {
                 $userSerialized = serialize($check);
                 setcookie('user', $userSerialized, time() + (60 * 60), '/');
-                header('location: ?url=/');
+                header('location: ?url=loai');
                 die;
             } else {
                 $thongBao = '*Tài khoản hoặc mật khẩu không đúng';
@@ -50,6 +50,7 @@ function thoat()
 function dangKy()
 {
     $error = [];
+    $DN = hienThiTenDN();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tenDN = $_POST['tenDN'];
         $matKhau = $_POST['matKhau'];
@@ -59,13 +60,23 @@ function dangKy()
         $tenKH = $_POST['tenKH'];
         $anh = $_FILES['avata'];
         $avata = themFile($anh['name'], $anh['tmp_name']);
+        
+        foreach ($DN as $item) {
+            if ($item['tenDN'] === $tenDN) {
+                $error['tenDN'] = "*Tên đăng nhập đã được sử dụng";
+                break;
+            }
+        }
         if ($tenDN == '') {
             $error['tenDN'] = "*Bạn chưa nhập";
         }
         if ($matKhau == '') {
             $error['matKhau'] = "*Bạn chưa nhập";
         }
-        if ($r_matKhau != $matKhau) {
+        if ($r_matKhau == '') {
+            $error['r_matKhau'] = "*Bạn chua nhap";
+        }
+        else if ($r_matKhau != $matKhau) {
             $error['r_matKhau'] = "*Bạn nhap sai";
         }
         if ($sdt == '') {

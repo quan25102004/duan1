@@ -18,7 +18,10 @@
             }
             ?> -->
     <!-- Header -->
-   
+    <div>
+         <?php require_once "headerAdmin.php" ?>
+         <div>
+            <h3>Sửa tài khoản</h3>
     <div class="container" style="display: flex;justify-content: flex-start;align-items: flex-start;">
         <div style="padding-right: 20%;">
 
@@ -49,7 +52,7 @@
                     <input type="text" name="sdt" value="<?=$hienthi['sdt'] ?>">
                     <p style="color:red"><?= $error['sdt'] ?? ''?></p>
                 </div><br>
-                <button type="submit" style="background-color: red;color: #fff;">Chỉnh
+                <button type="submit" style="background-color: #ccc; color: #000;padding:0 5px;margin:20px 5px">Chỉnh
                     sửa</button>
         </div>
         <div>
@@ -65,6 +68,10 @@
 
     </div>
     
+    </div>
+         </div>
+    
+   
 
 </body>
 

@@ -57,9 +57,15 @@ function binhLuan($ma){
    $sql = "SELECT b.*,k.avata,k.tenKH,h.tensp FROM binhluan b JOIN hanghoa h ON b.idSP = h.idSP JOIN khachhang k ON b.idKH = k.idKH WHERE h.idSP = $ma";
    return getData($sql);
 }
-function themBinhLuan($noidung,$idKH,$idSP){
-   $sql = "INSERT INTO binhluan(noidung,idKH,idSP) 
-   VALUES('$noidung','$idKH','$idSP')";
+function themBinhLuan($noidung,$ngayBL,$idKH,$idSP){
+   $sql = "INSERT INTO binhluan(noidung,ngayBL,idKH,idSP) 
+   VALUES('$noidung','$ngayBL','$idKH','$idSP')";
    return getData($sql);
+}
+function phantrang_view($page, $soluongsp)
+{
+    $batdau = ($page - 1) * $soluongsp;
+    $sql = "SELECT h.* FROM hanghoa h LIMIT $soluongsp OFFSET $batdau";
+    return getData($sql);
 }
 ?>

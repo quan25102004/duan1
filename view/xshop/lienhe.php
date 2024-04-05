@@ -149,6 +149,7 @@
                     <ul class="subnav" style="width: 100px;"> 
                       <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
                       <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+                      <li><a href="?url=viewdonhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
                     </ul>
                 </li>
             </ul>

@@ -87,18 +87,26 @@
 
     .name_pro {
         width: 30%;
+        text-align: center;
+        font-weight: 600;
     }
 
     .price {
         width: 30%;
+        text-align: center;
+        font-weight: 600;
     }
 
     .number {
         width: 30%;
+        text-align: center;
+        font-weight: 600;
     }
 
     .sum {
         width: 30%;
+        text-align: center;
+        font-weight: 600;
     }
 
     /* footer */
@@ -136,12 +144,13 @@
 </style>
 
 <body>
-    <!-- <?php
+    
+        <?php
             if (!isset($_COOKIE['user'])) {
                 header('location: ?url=login');
                 die;
             }
-            ?> -->
+            ?> 
     <!-- Header -->
     <div class="main-header">
         <div class="container header">
@@ -179,6 +188,7 @@
                                     xuất</a></li>
                             <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai
                                     Khoan</a></li>
+                            <li><a href="?url=viewdonhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -196,18 +206,21 @@
                 <p class="sum">Tổng tiền</p>
             </div>
             <hr>
-            <?php foreach($giohang as $g): ?>
-            <div style="display: flex;">
-                <div class="name_pro">
-                    <img src="pulic/img/<?= $g['anh'] ?>" alt width="100px">
-                    <p name='tensp'><?= $g['tensp'] ?></p>
+            <?php foreach ($giohang as $g) : ?>
+                <div style="display: flex;">
+                    <div class="name_pro">
+                        <input type="hidden" name='idKH' value="<?= $g['idKH'] ?>">
+                        <img style="box-shadow: 0 0 10px rgba(0, 0, 0);margin-bottom:10px;border-radius:10px;" src="pulic/img/<?= $g['anh'] ?>" alt width="100px">
+                        <p name='tensp'><?= $g['tensp'] ?></p>
+                    </div>
+                    <p class="price"><?= number_format($g['dongia'], 0, ',', '.') ?></p>
+                    <p class="number"><?= $g['soluong'] ?>
+                    <p class="sum"><?= number_format($g['tongtien'], 0, ',', '.') ?></p>
+                    <a style="text-decoration: none;color:red" href="?url=xoagiohang&idSP=<?= $g['idSP'] ?>&idKH=<?= $g['idKH'] ?>">Xóa</a>
                 </div>
-                <p class="price"><?= $g['dongia'] ?></p>
-                <p class="number"><input class="number" type="number" min='1' value="<?= $g['soluong'] ?>"></p>
-                <p class="sum"><?= $g['tongtien']?></p>
-            </div>
+                <hr>
             <?php endforeach ?>
-            <hr>
+
 
 
         </div>
@@ -217,39 +230,26 @@
                 <div style="margin-top: 10px;">
                     <div style="display: flex;justify-content: space-between;">
                         <p>Tổng sản phẩm</p>
-                        <p><?= $tong?></p>
-                    </div>
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Tổng số lượng</p>
-                        <p><?= $tongsp?></p>
+                        <p style="color: #f24261;font-weight: bold;"><?= $tongsp ?></p>
                     </div>
                     <div style="display: flex;justify-content: space-between;">
                         <p>Tổng tiền hàng</p>
-                        <p><?= $thanhtien?></p>
+                        <p style="color: #f24261;font-weight: bold;"><?= number_format($thanhtien, 0, ',', '.') ?></p>
                     </div>
                     <div style="display: flex;justify-content: space-between;">
                         <p>Thành tiền</p>
-                        <p><?= $thanhtien?></p>
+                        <p style="color: #f24261;font-weight: bold;"><?= number_format($thanhtien, 0, ',', '.') ?> VNĐ</p>
                     </div>
-                    <h4 class="mb-3">Hình thức thanh toán</h4>
-
-<div class="d-block my-3">
-    <div class="custom-control custom-radio">
-        <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required="" value="2">
-        <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
-    </div>
-    <div class="custom-control custom-radio">
-        <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required="" value="3">
-        <label class="custom-control-label" for="httt-3">Thanh Toán Khi Nhận Hàng</label>
-    </div>
-</div>
+                 
                 </div>
 
             </div>
-            <div style="width: 100%;text-align: center;" class="order">
-                <a href="?url=camon" style="text-decoration: none;">
-                    <p style="color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua
-                    </p>
+            <div style="width: 100%;text-align: center;">
+                <a href="" style="text-decoration: none;">
+                    <form action="?url=a" method='post'>
+                        <input type="hidden" name='idKH' value="<?= $gh['idKH'] ?>">
+                        <button class="order" name='datmua' style="width: 100%;color: white;font-weight: 500; font-size: 20px; padding-top: 10px;padding-bottom: 10px;">Đặt mua</button>
+                    </form>
                 </a>
 
             </div>

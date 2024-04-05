@@ -15,6 +15,13 @@ function getData($query, $getAll = true){
     }
     return $stmt->fetch();
 }
+function addCTDH($query, $getAll = true){
+    $conn = getConnnect();
+    $stmt  =$conn ->prepare(($query));
+    $stmt ->execute();
+    $lastInsertId = $conn->lastInsertId();
+        return $lastInsertId;
+}
 
 function SQL($query){
     try{
