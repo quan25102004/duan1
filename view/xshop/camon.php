@@ -103,10 +103,9 @@
     margin-top: 5%;
     margin-bottom: 5%;
     display: flex;
-
     justify-content: center;
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 2s;
     
     
   }
@@ -115,9 +114,7 @@
     0% {
       opacity: 0;
     }
-    50% {
-      opacity: 0.5;
-    }
+
     100% {
       opacity: 1;
 
@@ -130,12 +127,12 @@
 </style>
 
 <body>
-  <!-- <?php
+  <?php
         if (!isset($_COOKIE['user'])) {
           header('location: ?url=login');
           die;
         }
-        ?> -->
+        ?>
   <!-- Header -->
   <div class="main-header">
     <div class="container header">
@@ -170,6 +167,7 @@
             <ul class="subnav" style="width: 100px;">
               <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
               <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+              <li><a href="?url=table_donhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
             </ul>
           </li>
         </ul>

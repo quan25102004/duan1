@@ -13,6 +13,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
   }
 
   .a {
@@ -60,7 +61,7 @@
   /* sp */
   .product {
     width: 300px;
-    border: 1px solid black;
+
     border-radius: 10px;
     padding: 5px;
   }
@@ -77,13 +78,26 @@
     overflow: hidden;
   }
 
+  .name_sp{
+    text-align: center;
+    display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+  }
+  .xemchitiet{
+    margin: auto;
+  }
   .button {
     text-decoration: none;
-    width: 110px;
+    width: 100%;
     background-color: #989494;
     padding: 10px;
+    text-align: center;
     border-radius: 7px;
+    font-weight: 600;
   }
+
 
   .button:hover {
     background-color: #ccc;
@@ -197,6 +211,7 @@
             <ul class="subnav" style="width: 100px;">
               <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
               <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+              <li><a href="?url=table_donhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
             </ul>
           </li>
         </ul>
@@ -216,10 +231,13 @@
         <?php for ($i = 0; $i <= 5; $i++) : ?>
           <div class=" col-lg-4 col-md-6 col-sm-12 mb-5" style="display: flex;justify-content: center;">
             <div class="product">
-              <img src="pulic/img/<?= $sanpham[$i]['anh'] ?>" class="card-img-top" alt="..." style="height: 230px;width: 100%;;border-radius:10px;">
+              <img src="pulic/img/<?= $sanpham[$i]['anh'] ?>" class="card-img-top" alt="..." style="height: 230px;width: 100%;;border-radius:10px;box-shadow: 0 0 10px rgba(0, 0, 0);margin-bottom:10px;">
               <div class>
-                <h5 class="card-title mt-2"><?= $sanpham[$i]['tensp'] ?></h5>
-                <p class="card-text"><?= $sanpham[$i]['mota'] ?></p>
+                <div class="name_sp">
+                  <h5 class="card-title mt-2" style="margin-bottom: 15px;"><?= $sanpham[$i]['tensp'] ?></h5>
+                </div>
+                <!-- <p class="card-text"><?= $sanpham[$i]['mota'] ?></p> -->
+                <p class="card-text" style="font-weight: bold;color:#f24261;text-align: center;"><?= number_format($sanpham[$i]['dongia'], 0, ',', '.')  ?>VNĐ</p>
                 <div class="button">
                   <a href="?url=ctsp&ma=<?= $sanpham[$i]['idSP'] ?>&idLoai=<?= $sanpham[$i]['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
                 </div>
@@ -231,6 +249,7 @@
       </div>
     </div>
   </div>
+  
   <!-- footer -->
   <div style="background-color: #f1f0f0;">
     <div class="container">

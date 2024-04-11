@@ -3,17 +3,32 @@ require 'model/Product.php';
 require_once 'model/loai.php';
 // require 'global.php';
 function listProduct(){
-    $sanpham = sanpham();
+    $sanpham = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['kyw'])) {
+        $key = $_POST['kyw'];
+        
+        // $count = 0;
+        $sotrang=0;
+        $sanpham = timkiem($key);
+    } else {
+        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        if ($page <= 0) {
+            $page = 1;
+        }
+        $soluongsp = 6; 
+        $count = count(sanpham($page,$soluongsp)); 
+        $sotrang = ceil($count / $soluongsp);
+        $sanpham = phantrang_admin($page, $soluongsp);
+    }
     include "view/product/sanpham.php";
 }
-
 function addPro(){
     $error=[];
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $tensp = $_POST['tensp'];
         $dongia = $_POST['dongia'];
         $soluong = $_POST['soluong'];
-        $giamgia = $_POST['giamgia'];
+     
         $mota = $_POST['mota'];
         $idLoai = $_POST['idLoai'];
         $anh = $_FILES['anh'];
@@ -30,14 +45,11 @@ function addPro(){
         if($soluong==''){
             $error['soluong']="*Bạn chưa nhập";
         }
-         if($giamgia==''){
-            $error['giamgia']="*Bạn chưa nhập";
-        }
         if($mota==''){
             $error['mota']="*Bạn chưa nhập";
         }
         else{
-            addSanPham($tensp, $img, $dongia, $soluong, $giamgia,$mota,$idLoai);
+            addSanPham($tensp, $img, $dongia, $soluong,$mota,$idLoai);
             header('location: ?url=sanpham');
             die;
         }
@@ -54,7 +66,7 @@ function editPro(){
         $anh = $_POST['anh'];
         $dongia = $_POST['dongia'];
         $soluong = $_POST['soluong'];
-        $giamgia = $_POST['giamgia'];
+       
         $mota = $_POST['mota'];
         $idLoai = $_POST['idLoai'];
         if($file['size']>0){
@@ -73,15 +85,13 @@ function editPro(){
         if($soluong==''){
             $error['soluong']="*Bạn chưa nhập";
         }
-         if($giamgia==''){
-            $error['giamgia']="*Bạn chưa nhập";
-        }
+ 
         if($mota==''){
             $error['mota']="*Bạn chưa nhập";
         }
        if(count($error)==0){
 
-           suaSanPham($tensp, $anh, $dongia, $soluong, $giamgia,$mota,$idSP,$idLoai);
+           suaSanPham($tensp, $anh, $dongia, $soluong,$mota,$idSP,$idLoai);
            header('location: ?url=sanpham');
         }
       
@@ -99,4 +109,13 @@ function deleteSanPham(){
     header('location: ?url=sanpham');
     die;
    }
+function timKiemSP_Admin()
+{
+    $key = $_POST['kyw'];
+    $search = timkiem($key);
+    $sanpham = $search;
+    // $loai = loai();
+    include "view/product/sanpham.php";
+}
+
 ?>

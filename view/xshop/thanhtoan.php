@@ -14,37 +14,38 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-       
+
     }
-    
+
     .header {
         align-items: center;
         justify-content: space-between;
         display: flex;
     }
-    
+
     .main-header {
         background-image: linear-gradient(#f6f6f6, rgb(156, 156, 156), #484848);
     }
-    
+
     .nav-link {
         color: rgb(255, 255, 255);
         font-weight: bold;
     }
-    
+
     .nav-link:hover {
         color: rgb(0, 0, 0);
     }
-    
+
     .prd {
         display: flex;
         justify-content: space-evenly;
         align-items: initial;
     }
-    
+
     .sub-prd {
         margin-left: 10%;
     }
+
     /* .deal {
     border: 1px solid black;
     background-color: red;
@@ -54,11 +55,11 @@
     padding: 15px;
 
   } */
-    
+
     .footer {
         color: black;
     }
-    
+
     .icon {
         border: 1px solid black;
         margin-right: 20px;
@@ -67,42 +68,42 @@
         color: #fff;
         background-color: rgb(211, 31, 31);
     }
-    
+
     .img-footer {
         width: 30px;
         height: 30px;
         margin-left: 10px;
     }
-    
+
     h3 {
         height: 100px;
     }
-    
+
     #header {
         height: 46px;
     }
-    
+
     #nav>li {
         display: block;
     }
-    
+
     #nav li a {
         padding-left: 5px;
         padding-right: 5px;
     }
-    
+
     #nav li {
         display: inline-block;
         line-height: 46px;
         position: relative;
         width: 100%;
     }
-    
+
     #nav>li:hover>a {
         display: inline-block;
         background-color: #ccc;
     }
-    
+
     #nav .subnav {
         display: none;
         position: absolute;
@@ -110,23 +111,23 @@
         box-shadow: 0 0 10px rgba(0, 0, 0);
         padding: 0px
     }
-    
+
     #nav li:hover .subnav {
         display: block;
     }
-    
+
     #nav .subnav li:hover {
         background-color: #ccc;
     }
-    
+
     .content {
         height: 500px;
     }
-    
+
     .content1 {
         margin-left: 40px;
     }
-    
+
     .content2 {
         float: right;
         border: solid red;
@@ -142,10 +143,10 @@
     <!-- Header -->
     <div class="main-header">
         <div class="container header">
-        <div class="header-logo">
-        <a href="?url=indexTrangChu"><img style="height: 30px;" src="pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
-        
-      </div>
+            <div class="header-logo">
+                <a href="?url=indexTrangChu"><img style="height: 30px;" src="pulic/img/logo.png" href="?url=indexTrangChu" alt></a>
+
+            </div>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="?url=indexTrangChu">Trang chủ</a>
@@ -164,8 +165,8 @@
                 </li>
             </ul>
             <a href style="color: #000000;text-decoration: none; line-height: 46px;">Bạn
-        cần
-        giúp đỡ gì?</a>
+                cần
+                giúp đỡ gì?</a>
 
             <div id="header">
                 <ul id="nav">
@@ -173,6 +174,7 @@
                         <ul class="subnav" style="width: 100px;">
                             <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
                             <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+                            <li><a href="?url=table_donhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -187,7 +189,7 @@
     <main role="main">
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
         <div class="container mt-4">
-            <form class="needs-validation" name="" method="post" action="">
+            <form class="needs-validation" name="" method="post" action="?url=thanhtoan">
                 <input type="hidden" name="" value="">
 
                 <div class="py-5 text-center">
@@ -203,31 +205,21 @@
                             <span class="badge badge-secondary badge-pill"></span>
                         </h4>
                         <ul class="list-group mb-3">
+                            <?php foreach ($giohang as $g) : ?>
+                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                        <h6 class="my-0"> <img src="pulic/img/<?= $g['anh'] ?>" alt="" width="80px"></h6>
 
+                                        <span class="text-muted" style="font-weight: 600;"> SL: <?= $g['soluong'] ?></span>
+                                    </div>
 
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    <h6 class="my-0">Đồng Hồ 2</h6>
-
-                                    <span class="text-muted">1.000.000</span>
-                                </div>
-                                <span class="text-muted">1.000.000</span>
-                            </li>
-
-
-                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                <div>
-                                    <h6 class="my-0">Đồng Hồ 1</h6>
-
-                                    <span class="text-muted">1.000.000</span>
-                                </div>
-                                <span class="text-muted">1.000.000</span>
-                            </li>
+                                    <span class="text-muted" style="font-weight: 600;">Tổng tiền: <br><?= number_format($g['tongtien'], 0, ',', '.') ?></span>
+                                </li>
+                            <?php endforeach ?>
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Tổng thành tiền</span>
-                                <strong>143520000</strong>
+                                <strong><?= number_format($thanhtien, 0, ',', '.') ?>.VNĐ</strong>
                             </li>
-
                         </ul>
 
 
@@ -239,57 +231,47 @@
                         </div>
 
                     </div>
+            
                     <div class="col-md-8 order-md-1">
                         <h4 class="mb-3">Thông tin khách hàng</h4>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="kh_ten">Họ tên</label>
-                                <input type="text" class="form-control" name="" id="" value="Nhập Họ Và Tên" readonly="">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="">Địa chỉ</label>
+                                    <input type="text" class="form-control" name="diachi" required="">
+                                    <p style="color:red"><?= $error['diachi'] ?? ''?></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="">Điện thoại</label>
+                                    <input type="text" class="form-control" name="sdt" required="">
+                                    <p style="color:red"><?= $error['sdt'] ?? ''?></p>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="">Ghi chú</label>
+                                    <input type="text" class="form-control" name="ghichu" required="">
+                                    <p style="color:red"><?= $error['ghichu'] ?? ''?></p>
+                                </div>
                             </div>
 
-                            <div class="col-md-12">
-                                <label for="">Địa chỉ</label>
-                                <input type="text" class="form-control" name="kh_diachi" id="kh_diachi" value="" readonly="">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Điện thoại</label>
-                                <input type="text" class="form-control" name="" id="" value="" readonly="">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Email</label>
-                                <input type="text" class="form-control" name="" id="" value="" readonly="">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">Ngày sinh</label>
-                                <input type="text" class="form-control" name="" id="" value="" readonly="">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="">CMND</label>
-                                <input type="text" class="form-control" name="" id="" value="" readonly="">
-                            </div>
-                        </div>
-
-                        <h4 class="mb-3">Hình thức thanh toán</h4>
-
-                        <div class="d-block my-3">
+                            <h4 class="mb-3">Hình thức thanh toán</h4>
+                           <div class="d-block my-3">
+                          
                             <div class="custom-control custom-radio">
-                                <input id="httt-1" name="httt_ma" type="radio" class="custom-control-input" required="" value="1">
-                                <label class="custom-control-label" for="httt-1">Tiền mặt</label>
+                              
+
+                                    <input id="httt-2" name="momo" type="submit" class="custom-control-input" required="" value="Thanh toán QR Momo">
+                            
+                               
                             </div>
-                            <div class="custom-control custom-radio">
-                                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required="" value="2">
-                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
-                            </div>
-                            <div class="custom-control custom-radio">
+                            
+                            <!-- <div class="custom-control custom-radio">
                                 <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required="" value="3">
                                 <label class="custom-control-label" for="httt-3">Thanh Toán Khi Nhận Hàng</label>
-                            </div>
+                            </div> -->
                         </div>
-                        <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" style="background-color: black;margin-bottom:30px;" type="submit" name="btnDatHang"><a style=" text-decoration: none;
-        color: white;" href="?url=camon">Đặt
-                            hàng</a></button>
+                        <input type="hidden" name='idKH' value="<?= $userLogin[0]["idKH"] ?>">
+                            <!-- <hr class="mb-4"> -->
+                            <!-- <button class="btn btn-primary btn-lg btn-block" name='order' type="submit" style="background-color: black;margin-bottom:30px;">Đặt mua</button> -->
+                        
                     </div>
                 </div>
             </form>
@@ -350,5 +332,3 @@
 </body>
 
 </html>
-
-<!-- abc -->

@@ -10,9 +10,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <style>
-  body{
+  body {
     background-color: #f5f5f5;
   }
+
   * {
     padding: 0;
     margin: 0;
@@ -61,7 +62,8 @@
     font-size: 20px;
     border-radius: 5px;
   }
-  .add{
+
+  .add {
     border: 1px solid black;
     background-color: #ccc;
     text-decoration: none;
@@ -73,15 +75,19 @@
     font-size: 20px;
     border-radius: 5px;
   }
-  a{
+
+  a {
     text-decoration: none;
   }
+
   .deal:hover {
     background-color: #83081e;
   }
-  .add:hover{
+
+  .add:hover {
     background-color: #6d6a6a;
   }
+
   .footer {
     color: black;
   }
@@ -146,7 +152,8 @@
   #nav .subnav li:hover {
     background-color: #ccc;
   }
-  .price{
+
+  .price {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -196,6 +203,7 @@
             <ul class="subnav" style="width: 100px;">
               <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
               <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+              <li><a href="?url=table_donhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
             </ul>
           </li>
         </ul>
@@ -211,67 +219,72 @@
       <div class="img-prd">
         <img name='anh' src="pulic/img/<?= $ctsp['anh'] ?>" alt="" style="width: 500px;height: 400px;border-radius:5px;">
       </div>
-      <form action="?url=giohang&addcart=<?=$ma?>&ma=<?=$ma?>" method='post'>
-      <div class="sub-prd">
-        <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;" name='tensp'><?= $ctsp['tensp'] ?></p>
-        <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= $ctsp['dongia'] . ".VNĐ" ?></strong> <br> <br>
-        <input class="number" style="width: 50px;" type="number" name="soluong" min='1'>
-        <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
-        <p style="color: #9d9d9d;margin-top: 19px;font-family: 'Roboto', sans-serif;" name='mota'><?= $ctsp['mota'] ?></p>
-    <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
-    <input type="hidden" name="idSP" value="<?= $ma ?>">
-    <button type="submit" name='addcart' class="add" value="Thêm giỏ hàng">Thêm giỏ hàng</button>
-</form>
-          <p class="deal">Mua ngay</p>
-           
-      </div>
-
-    </div>
-
-
-    <div style="width: 100%; margin-top: 20px;background-color: #fff;padding:10px;border-radius:5px;">
-      <p style="font-size: 20px;">ĐÁNH GIÁ SẢN PHẨM</p>
-      
-      <div>
-        <?php foreach ($binhluan as $b) : ?>
-
-          <div>
-            <div style="display: flex;">
-              <div style="align-items: center;display: flex;">
-                <img src="pulic/img/<?= $b['avata'] ?>" width="40px" height="40px" alt="" style="border-radius: 50%;align-items: center ;">
-              </div>
-              <div style="color: #828181;padding-left: 10px;">
-                <p style="margin:0;color:black;font-weight:450"><?= $b['tenKH'] ?></p>
-                <a><?= $b['ngayBL'] ?> |</a> <a><?= $b['tensp'] ?></a>
-              </div>
-            </div>
-            <p style="color: #000;margin-top:16px;width:35%"><?= $b['noidung'] ?></p>
-          </div>
-          <hr>
-        <?php endforeach ?>
-      </div>
-      <form action="" method="post">
-        <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
-        <input type="hidden" name="idSP" value="<?= $ma ?>">
-        <input type="text" name="noidung" style="width: 50%;padding:3px;height:32px;" placeholder="Hãy điền bình luận vào đây">
-        <button type='submit' style="width: 10%;padding:2px; margin-top:5px;">Gửi bình luận</button>
+      <form action="?url=giohang" method='post'>
+        <div class="sub-prd">
+          <p style="font-size: 40px;font-weight: 600;font-family: 'Roboto', sans-serif;" name='tensp'><?= $ctsp['tensp'] ?></p>
+          <strong style="    font-weight: 500;color: #f24261;font-size: 27px;" name='dongia'><?= number_format($ctsp['dongia'], 0, ',', '.') . "VNĐ" ?></strong> <br> <br>
+          <p style="color:#828181">Số lượng: <?=$ctsp['soluong']?></p>
+          <input class="number" style="width: 50px;" type="number" name="soluong" value="1" min='1' max='<?=$ctsp['soluong']?>'>
+          <p style="color: #9d9d9d;margin-top: 19px;">Mô tả</p>
+          <p style="color: #9d9d9d;margin-top: 19px;font-family: 'Roboto', sans-serif;" name='mota'><?= $ctsp['mota'] ?></p>
+          <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
+          <input type="hidden" name="idSP" value="<?= $ma ?>">
+          <button type="submit" name='addcart' class="add" value="Thêm giỏ hàng">Thêm giỏ hàng</button>
+          <!-- <a href="?url=muangay&idSP=<?=$ma?>&idKH=<?=$userLogin[0]["idKH"] ?>"><button type="button" name='order'  class="deal" value="Thêm giỏ hàng">Mua ngay</button></a> -->
       </form>
+      <!-- <p>Mua ngay</p> -->
+
     </div>
-    <p style="font-size: 20px;margin:10px;">SẢN PHẨM LIÊN QUAN</p>
-    <div style="width: 100%; margin-top: 20px;padding:10px;border-radius:5px;display:flex">
-    <?php foreach($sanpham as $s):?>
-      <div style="margin: 7px;background-color: #fff;width:150px">
-        <img src="pulic/img/<?=$s['anh']?>" alt="" width="150px" height="150px">
-        <p style="padding:5px;margin:0;" ><?=$s['tensp']?></p>
-        <div style="display:flex" >
-           <p style="padding:0px 5px;color:#f24261;font-weight:600;"  ><?=$s['dongia']?>.VNĐ </p>
-           <p class="price" style="color:#afaaaa;padding-left:15px">Đã bán 3</p>
+
+  </div>
+
+
+  <div style="width: 100%; margin-top: 20px;background-color: #fff;padding:10px;border-radius:5px;">
+    <p style="font-size: 20px;">ĐÁNH GIÁ SẢN PHẨM</p>
+
+    <div>
+      <?php foreach ($binhluan as $b) : ?>
+
+        <div>
+          <div style="display: flex;">
+            <div style="align-items: center;display: flex;">
+              <img src="pulic/img/<?= $b['avata'] ?>" width="40px" height="40px" alt="" style="border-radius: 50%;align-items: center ;">
+            </div>
+            <div style="color: #828181;padding-left: 10px;">
+              <p style="margin:0;color:black;font-weight:450"><?= $b['tenKH'] ?></p>
+              <a><?= $b['ngayBL'] ?> |</a> <a><?= $b['tensp'] ?></a>
+            </div>
+          </div>
+          <p style="color: #000;margin-top:16px;width:35%"><?= $b['noidung'] ?></p>
         </div>
-       
-      </div>
-      <?php endforeach?>
+        <hr>
+      <?php endforeach ?>
     </div>
-  </div> <br> <hr>
+    <form action="" method="post">
+      <input type="hidden" name="idKH" value="<?= $userLogin[0]["idKH"] ?>">
+      <input type="hidden" name="idSP" value="<?= $ma ?>">
+      <input type="text" name="noidung" style="width: 50%;padding:3px;height:32px;" placeholder="Hãy điền bình luận vào đây">
+      <button type='submit' style="width: 10%;padding:2px; margin-top:5px;">Gửi bình luận</button>
+    </form>
+  </div>
+  <p style="font-size: 20px;margin:10px;">SẢN PHẨM LIÊN QUAN</p>
+  <div style="width: 100%; margin-top: 20px;padding:10px;border-radius:5px;display:flex">
+    <?php foreach ($sanpham as $s) : ?>
+      <div style="margin: 7px;background-color: #fff;width:150px">
+        <img src="pulic/img/<?= $s['anh'] ?>" alt="" width="150px" height="150px">
+        <a class="xemchitiet" href="?url=ctsp&ma=<?= $s['idSP']?>&idLoai=<?=$s['idLoai']?>" style="text-decoration: none; color: #474747;">
+          <p style="padding:5px;margin:0;"><?= $s['tensp'] ?></p>
+        </a>
+          <div style="display:flex">
+            <p style="padding:0px 5px;color:#f24261;font-weight:600;"><?= number_format($s['dongia'], 0, ',', '.') ?>VNĐ </p>
+            <p class="price" style="color:#afaaaa;padding-left:15px">Đã bán 3</p>
+          </div>
+  
+        </div>
+      <?php endforeach ?>
+    </div>
+  </div> <br>
+  <hr>
   <div class="container">
     <div class=" d-flex footer w-100 ">
       <div style="width: 245px; margin-right: 100px;">

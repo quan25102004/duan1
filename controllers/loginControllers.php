@@ -24,13 +24,13 @@ function dangnhap()
         if ($erorr['tenDN'] == "" && $erorr['matKhau'] == "") {
             if ($tenDN == $check[0]["tenDN"] && $matKhau == $check[0]["matKhau"] && $check[0]["role"] == 0) {
                 $userSerialized = serialize($check);
-                setcookie('user', $userSerialized, time() + (30 * 60), '/');
+                setcookie('user', $userSerialized, time() + (60 * 60), '/');
                 header('location: ?url=indexTrangChu');
                 die;
             } else if ($tenDN == $check[0]["tenDN"] && $matKhau == $check[0]["matKhau"] && $check[0]["role"] == 1) {
                 $userSerialized = serialize($check);
-                setcookie('user', $userSerialized, time() + (30 * 60), '/');
-                header('location: ?url=/');
+                setcookie('user', $userSerialized, time() + (60 * 60), '/');
+                header('location: ?url=loai');
                 die;
             } else {
                 $thongBao = '*Tài khoản hoặc mật khẩu không đúng';
@@ -42,7 +42,7 @@ function dangnhap()
 }
 function thoat()
 {
-    setcookie('user', "", time() - (30 * 60), '/');
+    setcookie('user', "", time() - (60 * 60), '/');
     header('location: ?url=login');
     die;
     include "view/xshop/trangchu.php";
@@ -50,6 +50,7 @@ function thoat()
 function dangKy()
 {
     $error = [];
+    $DN = hienThiTenDN();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tenDN = $_POST['tenDN'];
         $matKhau = $_POST['matKhau'];
@@ -59,13 +60,23 @@ function dangKy()
         $tenKH = $_POST['tenKH'];
         $anh = $_FILES['avata'];
         $avata = themFile($anh['name'], $anh['tmp_name']);
+        
+        foreach ($DN as $item) {
+            if ($item['tenDN'] === $tenDN) {
+                $error['tenDN'] = "*Tên đăng nhập đã được sử dụng";
+                break;
+            }
+        }
         if ($tenDN == '') {
             $error['tenDN'] = "*Bạn chưa nhập";
         }
         if ($matKhau == '') {
             $error['matKhau'] = "*Bạn chưa nhập";
         }
-        if ($r_matKhau != $matKhau) {
+        if ($r_matKhau == '') {
+            $error['r_matKhau'] = "*Bạn chua nhap";
+        }
+        else if ($r_matKhau != $matKhau) {
             $error['r_matKhau'] = "*Bạn nhap sai";
         }
         if ($sdt == '') {
@@ -89,10 +100,12 @@ function dangKy()
 function editTK()
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $erorr=[];
 
         $idKH = $_POST['idKH'];
         $tenKH = $_POST['tenKH'];
         $email = $_POST['email'];
+        $diachi = $_POST['diachi'];
         $sdt = $_POST['sdt'];
         $file = $_FILES['avata'];
         $avata = $_POST['avata'];
@@ -100,11 +113,29 @@ function editTK()
             $avata = $file['name'];
             $avata = themFile($file['name'], $file['tmp_name']);
         }
-        suaTK($tenKH, $email, $sdt, $avata, $idKH);
+        if ($sdt == '') {
+            $error['sdt'] = "*Bạn chưa nhập";
+        }
+        if ($email == '') {
+            $error['email'] = "*Bạn chưa nhập";
+        }
+        if ($tenKH == '') {
+            $error['tenKH'] = "*Bạn chưa nhập";
+        }
+        if ($diachi == '') {
+            $error['diachi'] = "*Bạn chưa nhập";
+        }
+        if ($avata == '') {
+            $error['avata'] = "*Bạn chưa nhập";
+        } 
+        else{
+        suaTK($tenKH, $email,$diachi, $sdt, $avata, $idKH);
+        }
     }
     $userCookie = $_COOKIE['user'];
     $userLogin = unserialize($userCookie);
     $hienthi = hienThiTK($userLogin[0]["idKH"]);
+ 
     include "view/xshop/user.php";
 }
 function doiMK()

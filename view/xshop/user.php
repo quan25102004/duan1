@@ -162,12 +162,12 @@
 </style>
 
 <body>
-    <!-- <?php
+    <?php
             if (!isset($_COOKIE['user'])) {
                 header('location: ?url=login');
                 die;
             }
-            ?> -->
+            ?>
     <!-- Header -->
     <div class="main-header">
         <div class="container header">
@@ -205,6 +205,7 @@
                                     xuất</a></li>
                             <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai
                                     Khoan</a></li>
+                                    <li><a href="?url=viewdonhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -230,13 +231,17 @@
                 <div>
                     <p class="input">Email:</p>
                     <input type="text" name="email" value="<?=$hienthi['email'] ?>">
-                    <p style="color:red"><?= $error['tenKH'] ?? ''?></p>
+                    <p style="color:red"><?= $error['email'] ?? ''?></p>
                 </div>
-
+                <div>
+                    <p class="input">Địa chỉ:</p>
+                    <input type="text" name="diachi" value="<?=$hienthi['diachi'] ?>">
+                    <p style="color:red"><?= $error['diachi'] ?? ''?></p>
+                </div>
                 <div>
                     <p class="input">Số điện thoại:</p>
                     <input type="text" name="sdt" value="<?=$hienthi['sdt'] ?>">
-                    <p style="color:red"><?= $error['tenKH'] ?? ''?></p>
+                    <p style="color:red"><?= $error['sdt'] ?? ''?></p>
                 </div><br>
                 <button type="submit" style="background-color: red;color: #fff;">Chỉnh
                     sửa</button>
@@ -246,7 +251,7 @@
                 <p class="input">Avata:</p>
                 <input type="hidden" name="avata" value="<?=$hienthi['avata']?>">
                 <input type="file" name="avata" value="<?=$hienthi['avata']?>"><img width="100px" src="pulic/img/<?=$hienthi['avata']?>" alt="">
-                <p style="color:red"><?= $error['tenKH'] ?? ''?></p>
+                <p style="color:red"><?= $error['avata'] ?? ''?></p>
             </div>
         </div>
         </form>
