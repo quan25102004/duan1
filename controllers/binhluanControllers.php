@@ -11,4 +11,11 @@ function xoaBinhLuan(){
     header('location: ?url=binhluan');
     die;
    }
+   function timKiem_bl_admin()
+{
+    $key = $_POST['kyw'];
+    $search = timkiem_bl($key);
+    $binhluan = $search;
+    include 'view/binhluan/binhluan.php';
+}
 ?>

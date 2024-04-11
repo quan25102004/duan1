@@ -151,7 +151,7 @@
              
                         <td><?= $dh['diachi'] ?></td>
                         <td><?= $dh['ngaydat'] ?></td>
-                        <td><?= $dh['tongtien'] ?></td>
+                        <td><?= $dh['thanhtien'] ?></td>
                         <td><?= $dh['ghichu'] ?></td>
                         <td><?= $dh['tenTT'] ?></td>
                         <td>

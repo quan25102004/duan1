@@ -7,13 +7,11 @@ require_once "controllers/loginControllers.php";
 require_once "controllers/userControllers.php";
 require_once "controllers/binhluanControllers.php";
 require_once "controllers/giohangControllers.php";
+// require_once "controllers/muangayControllers.php";
 require_once "global.php";
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 switch ($url) {
-    case "/":
-        listLoai();
-        deleteLoai();
-        break;
+
     case "sanpham":
         listProduct();
         break;
@@ -28,9 +26,6 @@ switch ($url) {
         break;
     case "themsanpham":
         addPro();
-        break;
-    case "themdonhang":
-        addDonHang();
         break;
     case "sualoai":
         editLoai();
@@ -51,6 +46,9 @@ switch ($url) {
         deleteDonHang();
         break;
     case "indexTrangChu":
+        listTrangChu();
+        break;
+    case "/":
         listTrangChu();
         break;
     case "indexSanPham":
@@ -112,10 +110,40 @@ switch ($url) {
     case "camon":
         include_once "view/xshop/camon.php";
         break;
-    case "thanhtoan":
-        include_once "view/xshop/thanhtoan.php";
-        break;
     case "giohang":
         showGioHang();
         break;
+    case "xoagiohang":
+        xoaGioHang();
+        break;
+    case "thanhtoan":
+        updateDonHang();
+        break;
+    case "viewdonhang":
+        chiTietDonHang();
+        break;
+    case "themtaikhoan":
+        addUser();
+        break;
+        // case "timkiem_loai_admin":
+        //     timKiem_loai_admin();
+        //     break;
+    case "order":
+        thanhToan_GioHang();
+        break;
+    case "xoadonhang_xshop":
+        xoasDonHang_xshop();
+        break;
+    case "tanggiamsl":
+        tang_giam_sl();
+        break;
+    case "table_donhang":
+        table_donhang();
+        break;
+    case "thanhtoanatm":
+        thanhtoanmomo();
+        break;
+        case "hienthidonhangdethanhtoan":
+            include "view/xshop/hienthidethanhtoan.php";
+            break;
 }

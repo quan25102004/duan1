@@ -13,6 +13,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
   }
 
   .a {
@@ -53,7 +54,6 @@
 
   .product {
     width: 300px;
-    border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
   }
@@ -62,20 +62,31 @@
     transition: 0.5s;
     transform: scale(1.1);
   }
-
+ 
   .card-text {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-
+  .name_sp{
+    text-align: center;
+    display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+  }
+  .xemchitiet{
+    margin: auto;
+  }
   .button {
     text-decoration: none;
-    width: 110px;
+    width: 100%;
     background-color: #989494;
     padding: 10px;
+    text-align: center;
     border-radius: 7px;
+    font-weight: 600;
   }
 
   .button:hover {
@@ -145,6 +156,7 @@
 
   #nav .subnav li:hover {
     background-color: #ccc;
+    
   }
 
 </style>
@@ -190,6 +202,7 @@
             <ul class="subnav" style="width: 100px;">
               <li><a href="?url=logout" style="color: #000;text-decoration: none;">Đăng xuất</a></li>
               <li><a href="?url=user" style="color: #000;text-decoration: none;">Tai Khoan</a></li>
+              <li><a href="?url=table_donhang" style="color: #000;text-decoration: none;">Đơn hàng</a></li>
             </ul>
           </li>
         </ul>
@@ -205,18 +218,18 @@
         <form action="index.php?url=indexLoc" method="POST">
           <select name="idLoai" id="idLoai">
             <?php foreach ($loai as $l) : ?>
-              <option value="<?= $l['idLoai'] ?>">
+              <option value="<?= $l['idLoai'] ?>" <?=$l['idLoai']==$sanpham['0']['idLoai']?'selected':''?>>
                 <?= $l['tenloai'] ?>
               </option>
             <?php endforeach ?>
           </select>
-          <button type="submit">Loc</button>
+          <button type="submit" style="padding:0 5px;">Lọc</button>
         </form>
 
       </div>
       <div style="margin-top:40px">
-        <form action="?url=key" method="POST">
-          <input type="text" name="kyw" id="kyw" placeholder="Tìm kiếm">
+        <form action="" method="POST">
+          <input type="text" name="kyw" id="kyw" placeholder="Tìm kiếm" style="padding-left: 5px;">
         </form>
       </div>
 
@@ -227,11 +240,13 @@
       <?php foreach ($sanpham as $sp) : ?>
         <div class=" col-lg-4 col-md-6 col-sm-12 mb-5" style="display: flex;justify-content: center;">
           <div class="product">
-            <img src="pulic/img/<?= $sp['anh'] ?>" class="card-img-top" alt="..." style="height: 200px;width: 100%;;border-radius:10px;">
+            <img src="pulic/img/<?= $sp['anh'] ?>" class="card-img-top" alt="..." style="height: 200px;width: 100%;;border-radius:10px;box-shadow: 0 0 10px rgba(0, 0, 0);margin-bottom:10px;">
             <div class>
-              <h5 class="card-title mt-2"><?= $sp['tensp'] ?></h5>
-              <p class="card-text"><?= $sp['mota'] ?></p>
-              <div class="button" style="display: flex;">
+              <div class="name_sp" style="margin-bottom: 15px;"> <h5 class="card-title mt-2"><?= $sp['tensp'] ?></h5></div>
+             
+              <!-- <p class="card-text"><?= $sp['mota'] ?></p> -->
+              <p class="card-text" style="font-weight: bold;color:#f24261;text-align: center;"><?= number_format($sp['dongia'], 0, ',', '.') ?>VNĐ</p>
+              <div class="button" >
                 <a class="xemchitiet" href="?url=ctsp&ma=<?= $sp['idSP']?>&idLoai=<?= $sp['idLoai']?>" style="text-decoration: none; color: #f6f6f6;">Xem chi tiết</a>
               </div>
 
@@ -240,6 +255,13 @@
         </div>
       <?php endforeach ?>
     </div>
+    <div style="margin-bottom: 25px;text-align: center;">
+                        <?php
+  for ($i = 1; $i <= $sotrang; $i++) {
+  echo "<a style='color: black;padding:5px 10px;border: 1px solid #ccc;margin: 10px; text-decoration: none; '' href='?url=indexSanPham&page=$i'>$i</a>";
+  }
+  ?>  
+          </div>
 
   </div>
   <div style="background-color: #f1f0f0;">

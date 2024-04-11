@@ -12,14 +12,20 @@
         die;
     }
     ?>
-    <h2>Sửa Loại</h2>
-    <form action="index.php?url=sualoai&idLoai=<?=$loai['idLoai']?>" method='post'>
+    <?php require_once "headerAdmin.php" ?>
+    <div>
+         <h2 style="margin:10px 5px">Sửa Loại: </h2>
+    <div style="margin-left: 10px;">
+         <form action="index.php?url=sualoai&idLoai=<?=$loai['idLoai']?>" method='post'>
         <input type="hidden" name='idLoai' value="<?=$loai['idLoai']?>" ><br>
         Tên Loại
         <input type="text" name='tenloai' value="<?=$loai['tenloai']?>"><br>
         <p style="color:red"><?= $error['tenloai'] ?? ''?></p>
-        <button type="submit" >Sửa</button>
-        <a href="loai.php">Quan tri</a>
+        <button type="submit" style="background-color: #ccc; color: #000;padding:0 5px;margin:20px 5px" >Sửa</button>
     </form>
+    </div>
+    </div>
+   
+   
 </body>
 </html>

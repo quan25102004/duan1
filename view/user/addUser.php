@@ -25,36 +25,36 @@
     <div class="container" style="display: flex;justify-content: flex-start;align-items: flex-start;">
         <div style="padding-right: 20%;">
 
-            <form action="index.php?url=suataikhoan&idKH=<?=$hienthi['idKH']?>" method='post' enctype="multipart/form-data">
-                <input type="hidden" name="idKH" value="<?=$hienthi['idKH'] ?>">
+            <form action="index.php?url=themtaikhoan" method='post' enctype="multipart/form-data">
+                
                 <div>
                     <p class="input">Tên khách hàng:</p>
-                    <input type="text" name="tenKH" value="<?=$hienthi['tenKH'] ?>">
+                    <input type="text" name="tenKH">
                     <p style="color:red"><?= $error['tenKH'] ?? ''?></p>
                 </div>
                 <div>
                     <p class="input">Tên đăng nhập:</p>
-                    <input type="text"  name="tenDN" value="<?=$hienthi['tenDN'] ?>"> 
+                    <input type="text"  name="tenDN" > 
                     <p style="color:red"><?= $error['tenDN'] ?? ''?></p>
                 </div>
                 <div>
                     <p class="input">Mật Khẩu:</p>
-                    <input type="text"  name="matKhau" value="<?=$hienthi['matKhau'] ?>"> 
+                    <input type="text"  name="matKhau"> 
                     <p style="color:red"><?= $error['matKhau'] ?? ''?></p>
                 </div>
                 <div>
                     <p class="input">Email:</p>
-                    <input type="text" name="email" value="<?=$hienthi['email'] ?>">
+                    <input type="text" name="email" >
                     <p style="color:red"><?= $error['email'] ?? ''?></p>
                 </div>
                 <div>
                     <p class="input">Địa chỉ:</p>
-                    <input type="text" name="diachi" value="<?=$hienthi['diachi']?>">
+                    <input type="text" name="diachi" >
                     <p style="color:red"><?= $error['diachi'] ?? ''?></p>
                 </div>
                 <div>
                     <p class="input">Số điện thoại:</p>
-                    <input type="text" name="sdt" value="<?=$hienthi['sdt'] ?>">
+                    <input type="text" name="sdt" >
                     <p style="color:red"><?= $error['sdt'] ?? ''?></p>
                 </div><br>
                 <button type="submit" style="background-color: #ccc; color: #000;padding:0 5px;margin:20px 5px">Chỉnh
@@ -63,8 +63,8 @@
         <div>
             <div>
                 <p class="input">Avata:</p>
-                <input type="hidden" name="avata" value="<?=$hienthi['avata']?>">
-                <input type="file" name="avata" value="<?=$hienthi['avata']?>"><img width="100px" src="pulic/img/<?=$hienthi['avata']?>" alt="">
+               
+                <input type="file" name="avata" value=""><img width="100px">
                 <p style="color:red"><?= $error['avata'] ?? ''?></p>
             </div>
         </div>

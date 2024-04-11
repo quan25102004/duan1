@@ -20,4 +20,15 @@ function xoaLoai($idLoai){
     $sql = "DELETE FROM loai WHERE idLoai='$idLoai'";
     return SQL($sql);
 }
+
+function sanpham_loai_delete($idLoai)
+{
+    $sql = "SELECT * FROM hanghoa where idLoai = $idLoai";
+    return getData($sql);
+}
+function timkiem_loai($key)
+{
+    $sql = "SELECT * FROM loai WHERE tenloai LIKE '%$key%'";
+    return getData($sql);
+}
 ?>

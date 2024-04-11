@@ -9,7 +9,22 @@ function listTrangChu()
 }
 function indexSanPham()
 {
-    $sanpham = hienThi();
+    $sanpham = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['kyw'])) {
+        $key = $_POST['kyw'];
+        $sotrang = 0;
+        $sanpham = timkiem($key);
+    } else {
+        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        if ($page <= 0) {
+            $page = 1;
+        }
+        $soluongsp = 6; 
+        $count = count(sanpham($page,$soluongsp)); 
+        $sotrang = ceil($count / $soluongsp);
+        $sanpham = phantrang_admin($page, $soluongsp);
+    }
+   
     $loai = loai();
     include "view/xshop/sanpham.php";
 }
@@ -19,7 +34,7 @@ function indexLoc()
     $loc = loc($idLoai);
     $sanpham = $loc;
     $loai = loai();
-    
+    $sotrang = 0;
     include "view/xshop/sanpham.php";
 }
 function ctsp()
@@ -28,7 +43,8 @@ function ctsp()
         $noidung = $_POST['noidung'];
         $idKH = $_POST['idKH'];
         $idSP = $_POST['idSP'];
-        themBinhLuan($noidung,$idKH,$idSP);
+        $ngayBL = date_format(date_create(), "Y-m-d");
+        themBinhLuan($noidung,$ngayBL,$idKH,$idSP);
     }
     $ma = $_GET['ma'];
     $idLoai = $_GET['idLoai'];
